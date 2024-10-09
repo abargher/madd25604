@@ -1,0 +1,21 @@
+{
+  "code" "_.lines.clear()\nvar on = false\nfor (var i = 0; i < 100; i++) {\n\tif (!on){\n\t\tbreak;\n\t}\n\tvar line = new FLine()\n\tline.color = vec(i + 60 /  256.0, (i + 25) / 200.0, (i / 50.0) % 20.0, 0.3)\n\tline.moveTo((50*i) % 500, (26*i) % 250);\n\tline.cubicTo(10*i % 500, 15 * i % 250, 200, i*40 % 400, (i*500 + 56) % 256, (i*40 + 6) % 250);\n\t// line.lineTo();\n\t_.lines.add(line);\n}\n\n"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_fdf4a797_396b_41fa_9c37_caf59696631a"
+  "__datafilename__" "{{workspace}}/Draw 100.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "draw_100"
+  "__filename__code" "{{workspace}}/Draw 100.box.js"
+  "frame" #field/rect{
+    :x 851.4053344726562
+    :y -369.16650390625
+    :w 100.0
+    :h 100.0
+  }
+}

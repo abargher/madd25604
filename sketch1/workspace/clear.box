@@ -1,0 +1,21 @@
+{
+  "code" "_.lines.clear()"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_288d1dfe_ebd7_429f_a0aa_c0de7cc501d0"
+  "__datafilename__" "{{workspace}}/clear.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "clear"
+  "__filename__code" "{{workspace}}/clear.box.js"
+  "frame" #field/rect{
+    :x 148.9210968017578
+    :y -218.72421264648438
+    :w 100.0
+    :h 100.0
+  }
+}

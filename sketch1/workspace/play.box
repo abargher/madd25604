@@ -1,0 +1,21 @@
+{
+  "code" "var speed = 0.5\nvar end = 620\n\n_.time.frame.x = 0\nwhile(_.wait())\n{\n    _.time.frame.x  = (_.time.frame.x + speed) % end\n    _.redraw()\n}"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_e032f0ff_2ed2_4d14_a9bf_ad167cfb0bd5"
+  "__datafilename__" "{{workspace}}/play.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "play"
+  "__filename__code" "{{workspace}}/play.box.js"
+  "frame" #field/rect{
+    :x 873.9915771484375
+    :y -120.89384460449219
+    :w 100.0
+    :h 100.0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__id__" "_8d26d702_f7fd_4e95_b139_f13bb3dbbff7"
+  "__datafilename__" "{{workspace}}/Untitled00000.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "Untitled"
+  "frame" #field/rect{
+    :x 586.671875
+    :y 113.3499984741211
+    :w 100.0
+    :h 100.0
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+}

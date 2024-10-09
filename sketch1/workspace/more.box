@@ -1,0 +1,21 @@
+{
+  "code" "\nvar code = __.children.draw_100.code\n\nvar FieldLinesAndJavaText = Java.type(\"field.graphics.FLinesAndJavaText\")\n\n\n_.lines.clear()\nvar i = 0;\nfor (const s of code.split(/\\r?\\n/)) {\n\tvar toText = new FieldLinesAndJavaText()\n\ttoText.moveTo((50*i) % 500, (26*i) % 250);\n\tvar txt = toText.flineForText(s, \"Iosevka\", 12, 0);\n\ttxt.filled = true\n\t_.lines.add(txt)\n\ti = i + 1;\n}\n\n// var f = toText.flineForText(code, \"Iosevka\", 24, 0)\n// f.filled = true\n// _.lines.f = f\n_.redraw()"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_3dc27731_75ef_4cfd_b148_005cbd3691b9"
+  "__datafilename__" "{{workspace}}/more.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "more"
+  "__filename__code" "{{workspace}}/more.box.js"
+  "frame" #field/rect{
+    :x 833.485107421875
+    :y -242.63229370117188
+    :w 100.0
+    :h 100.0
+  }
+}
