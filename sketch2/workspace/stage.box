@@ -1,0 +1,28 @@
+{
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "fragment" "#version 410\n\nlayout(location=0) out vec4 _output;\n\nvoid main()\n{\n\t_output  = vec4(1,1,1,0.1);\n}"
+  "name" "stage"
+  "geometry" ""
+  "frame" #field/rect{
+    :x 468.93438720703125
+    :y -93.39765167236328
+    :w 100.0
+    :h 100.0
+  }
+  "__filename__code" "{{workspace}}/Users/alec/CMSC/madd25604/sketch2/workspace/stage.box.js"
+  "code" "_.textureOperator = true\n\n_.fbo = _.stage.fbo\n__.doSpaceMenu(_)\n\n_.auto = 10"
+  "auto" 10
+  "vertex" "#version 410\nlayout(location=0) in vec3 position;\nlayout(location=1) in vec4 s_Color;\n\nout vec4 vertexColor;\n\nvoid main()\n{\n\tgl_Position = ( vec4(position, 1.0));\n\n\tvertexColor = s_Color;\n}"
+  "withOverloading" true
+  "__filename__vertex" "{{workspace}}/Users/alec/CMSC/madd25604/sketch2/workspace/stage.box.glslv"
+  "__id__" "_4c8233e8_7cdb_465b_9387_fae1e9b5c6e8"
+  "__datafilename__" "{{workspace}}/Users/alec/CMSC/madd25604/sketch2/workspace/stage.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "__filename__geometry" "{{workspace}}/Users/alec/CMSC/madd25604/sketch2/workspace/stage.box.glslg"
+  "__filename__fragment" "{{workspace}}/Users/alec/CMSC/madd25604/sketch2/workspace/stage.box.glslf"
+  "__boxclass__" "fieldbox.boxes.Box"
+}

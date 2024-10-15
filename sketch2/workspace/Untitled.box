@@ -1,0 +1,21 @@
+{
+  "code" "var OpenPose = Java.type(\"trace.mocap.OpenPose\")\n\nvar op = new OpenPose(\"/Users/alec/CMSC/madd25604/sketch2/output\", 1920, 1920)\n\nvar f = new FLine()\nf.color=vec(1,1,1,1)\n\nvar layer = _.stage.withName(\"asdf\")\nlayer.is3D = true\nlayer.makeKeyboardCamera()\nlayer.vrDefaults()\n\n\nlayer.camera.position = vec(0.1, 0.05, -0.2)\nlayer.camera.target = vec(0, 0.05, 0)\n\n\n_.stage.lines.clear()\nlayer.lines.clear()\nlayer.lines.f = f\n\nfor(var frame of op.frames)\n{\n\tfor(var person of frame.people)\n\t{\n\t\t// draw point 4 (right hand)\n\t\tvar p = person.points[4]\n\t\t\n\t\tif (p.z>0)\n\t\t{\n\t\t\tf.lineTo(p.x/1000, p.y/1000)\n\t\t}\n\t\t\n\t\tf = f + vec(0, 0, 0.01)\n\t\tlayer.lines.f = f\n\t\t\n\t\tfor(var person of frame.people)\n\t\t{\n\t\t\tvar b = new FLine()\n\t\t\tfor(var point of person.points)\n\t\t\t{\n\t\t\t\tif (point.z>0)\n\t\t\t\t\tb.smoothTo(point.x/1000, point.y/1000)\n\t\t\t}\n\t\t\tb.color=vec(1,1,1,0.3)\n\t\t\tlayer.lines.body = b\n\n\t\t}\n\t}\n\t_.stage.frame(0.05)\n}"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__id__" "_db5057a7_8de1_4383_b88c_efd11417a115"
+  "__datafilename__" "{{workspace}}/Users/alec/CMSC/madd25604/sketch2/workspace/Untitled.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "Untitled"
+  "frame" #field/rect{
+    :x 32.899227142333984
+    :y -116.53827667236328
+    :w 100.0
+    :h 100.0
+  }
+  "__filename__code" "{{workspace}}/Users/alec/CMSC/madd25604/sketch2/workspace/Untitled.box.js"
+  "__boxclass__" "fieldbox.boxes.Box"
+}

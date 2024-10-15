@@ -1,0 +1,21 @@
+{
+  "code" ""
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__id__" "_290638a8_46ab_4d4c_82e4_16e27d202750"
+  "__datafilename__" "{{workspace}}/Untitled00002.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "Untitled"
+  "frame" #field/rect{
+    :x 64.23515319824219
+    :y -197.36563110351562
+    :w 100.0
+    :h 100.0
+  }
+  "__filename__code" "{{workspace}}/Untitled00002.box.js"
+  "__boxclass__" "fieldbox.boxes.Box"
+}

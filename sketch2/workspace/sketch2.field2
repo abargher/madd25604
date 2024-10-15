@@ -1,0 +1,75 @@
+#field/document{
+  :externalList [
+    #field/external{
+      :textFiles {
+        "code" "{{workspace}}/Untitled00003.box.js"
+      }
+      :dataFile "{{workspace}}/Untitled00003.box"
+      :id "_ef62f47b_926f_42b2_8871_bfb050c94f28"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 81.23749542236328
+          :y 94.57656860351562
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+  ]
+  :knownFiles {
+    "compute" #field/filespec{
+      :name "compute"
+    }
+    "txt" #field/filespec{
+      :name "txt"
+    }
+    "fragment" #field/filespec{
+      :name "fragment"
+    }
+    "code" #field/filespec{
+      :name "code"
+    }
+    "vertex" #field/filespec{
+      :name "vertex"
+    }
+    "geometry" #field/filespec{
+      :name "geometry"
+    }
+    "html" #field/filespec{
+      :name "html"
+    }
+    "edn" #field/filespec{
+      :name "edn"
+    }
+  }
+  :knownProperties #{
+    "__id__"
+    "comment"
+    "classpath"
+    "perDocument"
+    "name"
+    "frame"
+    "lockHeight"
+    "lockWidth"
+    "tag"
+    "windowSpace"
+    "windowScale"
+    "isPaired"
+    "auto"
+    "plane"
+    "defaultEditorProperty"
+    "_defaultEditorProperty_cookie"
+    "_code_cookie"
+    "_theVariant"
+    "includes"
+    "excludes"
+    "__datafilename__"
+    "__filename__code"
+  }
+}
