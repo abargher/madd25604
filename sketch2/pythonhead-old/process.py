@@ -31,10 +31,10 @@ args = parser.parse_args()
 c = args.video
 try:
     c = int(c)
-except: 
+except:
     pass
 
-cam = cv.VideoCapture(c)    
+cam = cv.VideoCapture(c)
 
 util.arguments = args
 
@@ -76,7 +76,7 @@ try:
 
             if (args.show):
                 cv.imshow("input", frame)
-                
+
             out = {}
             if (args.do_flow):
                 out.update(processor_flow.handleFrame(frame))
@@ -91,12 +91,12 @@ try:
             if (args.do_luma):
                 out.update(processor_doLuma.handleFrame(frame))
 
-            out.update(dict(frame=n, width=frame.shape[1], height=frame.shape[0]))       
+            out.update(dict(frame=n, width=frame.shape[1], height=frame.shape[0]))
 
             cv.waitKey(1)
-            
+
             print(json.dumps(out).replace("NaN", "0.0"),flush=True)
-            
+
             n+=1
 
         if (not ret):
