@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+FIELD_DIR="field-new"
+
 if [[ "$#" -ne 1 ]]; then
     echo "Please specify a sketch number."
     exit 1
@@ -13,6 +15,6 @@ fi
 
 NUM=$1
 
-./field_alpha43_m1/field.sh \
-    -destination "$HOME/CMSC/madd25604/sketch$NUM/workspace" \
-    -file "$HOME/CMSC/madd25604/sketch$NUM/workspace/sketch$NUM.field2"
+./$FIELD_DIR/field.sh \
+    -workspace "$HOME/CMSC/madd25604/sketch$NUM/workspace" \
+    -file "sketch$NUM.field2"
