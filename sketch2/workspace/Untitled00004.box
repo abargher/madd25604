@@ -1,0 +1,21 @@
+{
+  "code" "var PythonHead = Java.type(\"trace.video.PythonHead\")\n// **change this according to your OS and according to where you put pythonhead**\n// PythonHead.start(_, \"/Users/alec/CMSC/madd25604/sketch2/venv/bin/python3\", \"/Users/alec/CMSC/madd25604/sketch2/pythonhead\", [\"--do_lines\", \"--shrink\", \"0.2\", \"--video\", \"1\", \"--do_flow\"])\n\nPythonHead.start(_, \"/Users/alec/CMSC/madd25604/sketch2/venv/bin/python3\", \"/Users/alec/CMSC/madd25604/sketch2/pythonhead\", \n[\"--shrink\", \"0.5\",\n \"--video\", \"1\",\n \"--do_pose\"])\n\n// do this every frame\n_r = () => {\n\tvar points = PythonHead.now.posepoints\n\tvar width = Math.floor(Number(PythonHead.now.width))\n\tvar height = Math.floor(Number(PythonHead.now.height))\n\t\n\tvar draw_points = []\n\tfor (var coord of points[0]) {\n\t\tvar fx = Number(coord[0])\n\t\tvar fy = Number(coord[1])\n\t\tvar fz = Number(coord[2])\n\t\tvar loc = vec(fx * width, fy * height)\n\t\tdraw_points.push(loc)\n\t}\n\t\n\tvar newline = new FLine().data(\"ml*\", draw_points)\n\tnewline.thicken = 10\n\tnewline.color = vec(0,0,0,1)\n\t_.lines.f = newline\n\t\n// \tvar fx = PythonHead.now.mean_motion_x*10000\n// \tvar fy = PythonHead.now.mean_motion_y*10000\n\n// \tvar b = PythonHead.now.mean_red /255\n// \tvar g = PythonHead.now.mean_green /255\n// \tvar r = PythonHead.now.mean_blue /255\n\n// \tvar px = PythonHead.now.mean_motion_px*960\n// \tvar py = PythonHead.now.mean_motion_py*540\n\n// \tvar f = new FLine()\n\n// \tf.moveTo(px, py)\n// \tf.lineTo(px+fx, py+fy)\n\n// \tf.thicken=10\n// \tf.color = vec(r,g,b,1)\n\n// \t_.lines.f = f\n}"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_6b047d9e_89a7_486f_8ea8_03506422afa8"
+  "__datafilename__" "{{workspace}}/Untitled00004.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "pythonhead"
+  "__filename__code" "{{workspace}}/Untitled00004.box.js"
+  "frame" #field/rect{
+    :x 121.49765014648438
+    :y 199.43203735351562
+    :w 100.0
+    :h 100.0
+  }
+}
