@@ -14,7 +14,7 @@ function weird_trig(q, i) {
 // Font parameters
 var spacing = 40
 var font_size = 36
-var font_name = "SF Mono"
+var font_name = "Wingdings"
 
 // Color parameters
 var opacity = 0.2
