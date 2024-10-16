@@ -18,7 +18,7 @@ _r = () => {
 		var fx = Number(coord[0])
 		var fy = Number(coord[1])
 		var fz = Number(coord[2])
-		var loc = vec(fx * width, fy * height)
+		var loc = vec(fx * width/2, fy * height/2)
 		draw_points.push(loc)
 	}
 	
