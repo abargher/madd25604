@@ -14,11 +14,12 @@ _r = () => {
 
 // 	if (posepoints.length[0]) {
 		var p = PythonHead.now.posepoints
-		PythonHead.now.posepoints
+		PythonHead.nowposepoints
 		for(var i=0;i<p.length;i++)
 		{
 			f.lineTo(p[i][0], p[i][1])
 		}
+// 		var f = new FLine().data("ml*", p)
 		f.pointed = true
 		f.pointSize=5
 		_.lines.f = f * 300

@@ -1,5 +1,5 @@
 {
-  "code" "var PythonHead = Java.type(\"trace.video.PythonHead\")\n// **change this according to your OS and according to where you put pythonhead**\n// PythonHead.start(_, \"/Users/alec/CMSC/madd25604/sketch2/venv/bin/python3\", \"/Users/alec/CMSC/madd25604/sketch2/pythonhead\", [\"--do_lines\", \"--shrink\", \"0.2\", \"--video\", \"1\", \"--do_flow\"])\n\nPythonHead.start(_, \"/Users/alec/CMSC/madd25604/sketch2/venv/bin/python3\", \"/Users/alec/CMSC/madd25604/sketch2/pythonhead\", \n[\"--shrink\", \"0.5\",\n \"--video\", \"1\",\n \"--do_pose\"])\n_r = () => {\n\tvar posepoints = PythonHead.now.posepoints\n// \tPythonHead.now.posepoints\n\n\tvar f = new FLine()\n\n// \tif (posepoints.length[0]) {\n\t\tvar p = PythonHead.now.posepoints\n\t\tPythonHead.now.posepoints\n\t\tfor(var i=0;i<p.length;i++)\n\t\t{\n\t\t\tf.lineTo(p[i][0], p[i][1])\n\t\t}\n\t\tf.pointed = true\n\t\tf.pointSize=5\n\t\t_.lines.f = f * 300\n// \t}\n\n}\n\n\n"
+  "code" "var PythonHead = Java.type(\"trace.video.PythonHead\")\n// **change this according to your OS and according to where you put pythonhead**\n// PythonHead.start(_, \"/Users/alec/CMSC/madd25604/sketch2/venv/bin/python3\", \"/Users/alec/CMSC/madd25604/sketch2/pythonhead\", [\"--do_lines\", \"--shrink\", \"0.2\", \"--video\", \"1\", \"--do_flow\"])\n\nPythonHead.start(_, \"/Users/alec/CMSC/madd25604/sketch2/venv/bin/python3\", \"/Users/alec/CMSC/madd25604/sketch2/pythonhead\", \n[\"--shrink\", \"0.5\",\n \"--video\", \"1\",\n \"--do_pose\"])\n_r = () => {\n\tvar posepoints = PythonHead.now.posepoints\n// \tPythonHead.now.posepoints\n\n\tvar f = new FLine()\n\n// \tif (posepoints.length[0]) {\n\t\tvar p = PythonHead.now.posepoints\n\t\tPythonHead.nowposepoints\n\t\tfor(var i=0;i<p.length;i++)\n\t\t{\n\t\t\tf.lineTo(p[i][0], p[i][1])\n\t\t}\n// \t\tvar f = new FLine().data(\"ml*\", p)\n\t\tf.pointed = true\n\t\tf.pointSize=5\n\t\t_.lines.f = f * 300\n// \t}\n\n}\n\n\n"
   "withOverloading" true
   "boxOutline" #field/serializable{
     :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
@@ -13,7 +13,7 @@
   "name" "pythonhead"
   "__filename__code" "{{workspace}}/Untitled00004.box.js"
   "frame" #field/rect{
-    :x 121.49765014648438
+    :x 122.90780639648438
     :y 199.43203735351562
     :w 100.0
     :h 100.0

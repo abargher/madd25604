@@ -23,18 +23,12 @@ def handleFrame(frame):
 
     vis = frame.copy()
 
-    lines = []
-
     for face in face_landmarker_result.pose_landmarks:
         for landmark in face:
             cv.circle(vis, (int(landmark.x*vis.shape[1]), int(landmark.y*vis.shape[0])), 2, (0, 255, 0), -1)
 
         for h in POSE_CONNECTIONS:
-            lines.append((face[h.start].x, face[h.start].y))
-            lines.append((face[h.end].x, face[h.end].y))
-
-            cv.line(vis, (int(face[h.start].x*vis.shape[1]), int(face[h.start].y*vis.shape[0])),
-                    (int(face[h.end].x*vis.shape[1]), int(face[h.end].y*vis.shape[0])), (0, 255, 0), 1)
+            cv.line(vis, (int(face[h.start].x*vis.shape[1]), int(face[h.start].y*vis.shape[0])),(int(face[h.end].x*vis.shape[1]), int(face[h.end].y*vis.shape[0])), (0, 255, 0), 1)
 
 
     if (not arguments.hide):
@@ -42,6 +36,5 @@ def handleFrame(frame):
 
     maybeOutput("pose", vis, frame_idx)
     frame_idx+=1
-    # return dict(posepoints=[[(landmark.x, landmark.y, landmark.z) for landmark in face] for face in face_landmarker_result.pose_landmarks])
-    return dict(posepoints=lines)
+    return dict(posepoints=[[(landmark.x, landmark.y, landmark.z) for landmark in face] for face in face_landmarker_result.pose_landmarks])
 
