@@ -35,4 +35,4 @@ _.redraw()
 
 var toaxi = new ToAxi("/Users/alec/CMSC/madd25604/curvything.csv")
 var paths = toaxi.sample(_.lines, 5.0)
-toaxi.export(paths, 1.0, a.fit(paths, vec(17, 11)), vec(0.5, 0.5), a.min(paths))
+toaxi.export(paths, 1.0, toaxi.fit(paths, vec(17, 11)), vec(0.5, 0.5), toaxi.min(paths))
