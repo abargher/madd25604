@@ -14,8 +14,8 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 106.15937042236328
-          :y 21.904693603515625
+          :x -158.51641845703125
+          :y 719.0023193359375
           :w 100.0
           :h 100.0
         }
@@ -35,8 +35,29 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 122.90780639648438
-          :y 199.43203735351562
+          :x -149.11172485351562
+          :y 103.23281860351562
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "code" "{{workspace}}/Untitled00005.box.js"
+      }
+      :dataFile "{{workspace}}/Untitled00005.box"
+      :id "_d3d27f3e_0c8e_4773_b9d2_076c78b88c7f"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x -153.9031219482422
+          :y -20.205474853515625
           :w 100.0
           :h 100.0
         }

@@ -1,0 +1,21 @@
+{
+  "code" "var ToAxi = Java.type(\"trace.ToAxi\")\n\n// __.children.pythonhead.lines\n\nvar global_frame_count = __.children.pythonhead.frame_count\n\nvar toaxi = new ToAxi(`/Users/alec/CMSC/madd25604/sketch2/draw_out/frame_${global_frame_count}.csv`)\n\nvar paths = toaxi.sample(__.children.pythonhead.lines, 5.0)\ntoaxi.export(paths, 1.0, toaxi.fit(paths, vec(16, 10)), vec(0.5, 0.5), toaxi.min(paths))\n\n__.children.pythonhead.frame_count++\n"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_d3d27f3e_0c8e_4773_b9d2_076c78b88c7f"
+  "__datafilename__" "{{workspace}}/Untitled00005.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "take_snapshot"
+  "__filename__code" "{{workspace}}/Untitled00005.box.js"
+  "frame" #field/rect{
+    :x -153.9031219482422
+    :y -20.205474853515625
+    :w 100.0
+    :h 100.0
+  }
+}
