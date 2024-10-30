@@ -7,11 +7,12 @@ public partial class PlantTree : Area2D
 	private const int maxDepth = 3;
 
 	public float maxAngle = 10;
+	public bool hasLeaves = false;
 
 	public PackedScene BranchScene = GD.Load<PackedScene>("res://plant_tree.tscn");
 
 	[Export]
-	public PackedScene TreeScene { get; set; }
+	public PackedScene LeafScene { get; set; }
 
 	[Export]
 	public int MoveSpeed { get; set; } = 200; // How fast the tree moves by default.
@@ -26,7 +27,7 @@ public partial class PlantTree : Area2D
 	private float growSpeed;
 	private float _growProgress = 0;
 
-	private RandomNumberGenerator rng = new RandomNumberGenerator();
+	private RandomNumberGenerator rng = new();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -62,6 +63,15 @@ public partial class PlantTree : Area2D
 				AddChild(branch);
 			}
 			createdBranches = true;
+		} else if (RemainingBranches == 0 && !hasLeaves) {
+			// generate leaves
+			for (int i = 0; i < rng.RandiRange(2, 4); i++) {
+				Leaf leaf = LeafScene.Instantiate<Leaf>();
+				leaf.Position = new Vector2(rng.RandiRange(-10, 10), rng.RandiRange(-10, 10) -180);
+				AddChild(leaf);
+			}
+			hasLeaves = true;
+
 		}
 
 		if (moveVelocity.Length() > 0) {

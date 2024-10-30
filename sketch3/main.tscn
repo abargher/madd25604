@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdskt08xsyis6"]
+[gd_scene load_steps=5 format=3 uid="uid://cdskt08xsyis6"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_pt5wq"]
 [ext_resource type="PackedScene" uid="uid://dk6rl4qmhg86q" path="res://plant_tree.tscn" id="3_b7hnn"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yqjl2"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3p8x"]
-size = Vector2(1920, 96)
+size = Vector2(1920, 32)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_pt5wq")
@@ -15,17 +17,19 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.368627, 0.764706, 0.976471, 1)
 
-[node name="Ground" type="Area2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_yqjl2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(960, 1032)
-shape = SubResource("RectangleShape2D_c3p8x")
-
-[node name="ColorRect" type="ColorRect" parent="Ground"]
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 offset_top = 984.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.0363829, 0.472907, 3.56168e-06, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(960, 1064)
+shape = SubResource("RectangleShape2D_c3p8x")
 
 [node name="Tree" parent="." instance=ExtResource("3_b7hnn")]
 position = Vector2(960, 1016)
