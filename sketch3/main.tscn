@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://cdskt08xsyis6"]
+[gd_scene load_steps=4 format=3 uid="uid://cdskt08xsyis6"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_pt5wq"]
+[ext_resource type="PackedScene" uid="uid://dk6rl4qmhg86q" path="res://plant_tree.tscn" id="3_b7hnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3p8x"]
+size = Vector2(1152, 96)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_pt5wq")
+TreeScene = ExtResource("3_b7hnn")
+
+[node name="Sky" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.368627, 0.764706, 0.976471, 1)
+
+[node name="Ground" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(576, 600)
+shape = SubResource("RectangleShape2D_c3p8x")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_top = 552.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.0363829, 0.472907, 3.56168e-06, 1)
+
+[node name="Tree" parent="." instance=ExtResource("3_b7hnn")]
+position = Vector2(128, 584)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk6rl4qmhg86q"]
+
+[ext_resource type="Script" path="res://PlantTree.cs" id="1_c5mvl"]
+[ext_resource type="Shader" path="res://tree.gdshader" id="2_ntb3f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0mive"]
+shader = ExtResource("2_ntb3f")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpjvl"]
+height = 208.0
+
+[sub_resource type="Gradient" id="Gradient_l8cbn"]
+offsets = PackedFloat32Array(0, 0.928571, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.775974, 0.775974, 0.775974, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nquht"]
+gradient = SubResource("Gradient_l8cbn")
+width = 1
+fill_from = Vector2(0, 1)
+
+[node name="Tree" type="Area2D"]
+material = SubResource("ShaderMaterial_0mive")
+script = ExtResource("1_c5mvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(0.467465, 0.241098, 0.0206315, 1)
+position = Vector2(0, -104)
+shape = SubResource("CapsuleShape2D_cpjvl")
+debug_color = Color(0.481192, 0.241336, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(0.5, 0.500008)
+scale = Vector2(19, 3.20312)
+texture = SubResource("GradientTexture2D_nquht")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -103)
+scale = Vector2(1, 10.5)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnVisibleScreenNotifier2DScreenExited"]
