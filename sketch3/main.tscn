@@ -28,4 +28,10 @@ offset_bottom = 1080.0
 color = Color(0.0363829, 0.472907, 3.56168e-06, 1)
 
 [node name="Tree" parent="." instance=ExtResource("3_b7hnn")]
-position = Vector2(112, 1020)
+position = Vector2(960, 1016)
+
+[node name="Tree2" parent="." instance=ExtResource("3_b7hnn")]
+position = Vector2(1616, 1024)
+
+[node name="Tree3" parent="." instance=ExtResource("3_b7hnn")]
+position = Vector2(328, 1024)
