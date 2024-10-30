@@ -9,6 +9,8 @@ public partial class Leaf : CharacterBody2D
 	private float _growProgress = 0;
 
 	public const float maxAngle = 50;
+	private float angle = 0;
+	private const float spinSpeed = 10f;
 	public Vector2 maxScale = new(0.15f, 0.15f);
 	private float growSpeed;
 	private bool gravityOn = false;
@@ -50,6 +52,13 @@ public partial class Leaf : CharacterBody2D
         Velocity = velocity;
 
         var motion = velocity * (float)delta;
+
+		/*
+		angle = (angle + spinSpeed * (float)delta) % 360;
+		RotationDegrees = angle;
+		Position += new Vector2((float)Math.Sin(angle) * 20, 0);
+		*/
+
         var collision = MoveAndCollide(motion);
 
 		if (collision != null) {
