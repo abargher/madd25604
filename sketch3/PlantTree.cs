@@ -4,6 +4,7 @@ using Godot;
 public partial class PlantTree : Area2D
 {
 	private const float MAX_GROW_VEL = 10f;
+	private const int maxDepth = 3;
 
 	public float maxAngle = 10;
 
@@ -18,7 +19,7 @@ public partial class PlantTree : Area2D
 	public bool createdBranches = false;
 
 	[Export]
-	public int RemainingBranches { get; set; } = 3;
+	public int RemainingBranches { get; set; } = maxDepth;
 
 	public float angle = 0;
 
