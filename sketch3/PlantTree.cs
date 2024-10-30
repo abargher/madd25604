@@ -5,9 +5,11 @@ public partial class PlantTree : Area2D
 {
 	private const float MAX_GROW_VEL = 10f;
 	private const int maxDepth = 3;
+	private const float decayRate = 0.1f;
 
 	public float maxAngle = 10;
 	public bool hasLeaves = false;
+	public bool decay = false;
 
 	public PackedScene BranchScene = GD.Load<PackedScene>("res://plant_tree.tscn");
 
@@ -65,20 +67,14 @@ public partial class PlantTree : Area2D
 			createdBranches = true;
 		} else if (RemainingBranches == 0 && !hasLeaves) {
 			// generate leaves
-			for (int i = 0; i < rng.RandiRange(2, 4); i++) {
+			for (int i = 0; i < 2; i++) {
 				Leaf leaf = LeafScene.Instantiate<Leaf>();
 				leaf.Position = new Vector2(rng.RandiRange(-10, 10), rng.RandiRange(-10, 10) -180);
 				AddChild(leaf);
 			}
 			hasLeaves = true;
-
+			decay = true;
 		}
-
-		if (moveVelocity.Length() > 0) {
-			moveVelocity = moveVelocity.Normalized() * MoveSpeed;
-		}
-
-		// Position += moveVelocity * (float)delta;
 	}
 
 	private void OnVisibleScreenNotifier2DScreenExited()
