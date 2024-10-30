@@ -49,3 +49,7 @@ wind_on={
 [layer_names]
 
 2d_render/size/viewport_height=648
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
