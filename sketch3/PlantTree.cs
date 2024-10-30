@@ -1,8 +1,9 @@
+using System;
 using Godot;
 
 public partial class PlantTree : Area2D
 {
-	private const float GROW_VEL_SCALE = 10f;
+	private const float MAX_GROW_VEL = 10f;
 
 	public PackedScene BranchScene = GD.Load<PackedScene>("res://plant_tree.tscn");
 
@@ -12,6 +13,10 @@ public partial class PlantTree : Area2D
 	[Export]
 	public int MoveSpeed { get; set; } = 200; // How fast the tree moves by default.
 
+	public bool createdBranches = false;
+
+	[Export]
+	public int RemainingBranches { get; set; } = 3;
 
 	public float angle = 0;
 
@@ -20,7 +25,7 @@ public partial class PlantTree : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		angle = rng.RandfRange(-30, 30);
+		angle = rng.RandfRange(-40, 40);
 		RotationDegrees = angle;
 
 	}
@@ -28,7 +33,7 @@ public partial class PlantTree : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		var growVelocity = rng.RandfRange(0, GROW_VEL_SCALE);
+		var growVelocity = rng.RandfRange(0, MAX_GROW_VEL);
 
 		var moveVelocity = new Vector2(x: 1, y: 0);
 
@@ -36,15 +41,17 @@ public partial class PlantTree : Area2D
 			moveVelocity = new Vector2(x: 2, y: 0);
 		}
 
-		if (Input.IsActionJustPressed("new_tree")) {
-			PlantTree branch = BranchScene.Instantiate<PlantTree>();
-			// var endPos = GetNode<CollisionShape2D>("CollisionShape2D").Shape.GetRect().End;
-			
-			branch.Position = new Vector2(0, -100);
-			branch.MoveSpeed = 0;
+		if (Input.IsActionJustPressed("new_tree") && !createdBranches && RemainingBranches > 0) {
+			for (int i = 0; i < rng.RandiRange(1, 3); i++) {
+				PlantTree branch = BranchScene.Instantiate<PlantTree>();
+				
+				branch.Position = new Vector2(0, -150);
+				branch.MoveSpeed = 0;
+				branch.RemainingBranches = Math.Max(RemainingBranches - 1, 0);
 
-			AddChild(branch);
-
+				AddChild(branch);
+			}
+			createdBranches = true;
 		}
 
 		if (moveVelocity.Length() > 0) {
