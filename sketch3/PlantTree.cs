@@ -21,6 +21,7 @@ public partial class PlantTree : Area2D
 	public override void _Ready()
 	{
 		angle = rng.RandfRange(-30, 30);
+		RotationDegrees = angle;
 
 	}
 
