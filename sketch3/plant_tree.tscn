@@ -19,7 +19,7 @@ gradient = SubResource("Gradient_l8cbn")
 width = 1
 fill_from = Vector2(0, 1)
 
-[node name="Tree" type="Area2D"]
+[node name="Tree" type="Area2D" groups=["trees"]]
 material = SubResource("ShaderMaterial_0mive")
 collision_layer = 2
 script = ExtResource("1_c5mvl")

@@ -25,6 +25,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="sketch3"
 
+[global_group]
+
+trees=""
+
 [input]
 
 new_tree={
@@ -41,3 +45,7 @@ wind_on={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_render/size/viewport_height=648

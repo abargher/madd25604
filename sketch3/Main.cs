@@ -19,13 +19,33 @@ public partial class Main : Node
 			// Create a new tree in the main scene.
 			PlantTree tree = TreeScene.Instantiate<PlantTree>();
 
-			// Set properties of tree, location, etc...
-
 			tree.Position = new Vector2(gen.RandiRange(10, 200), 1020);
 			
-
 			AddChild(tree);
 
 		}
 	}
+
+	private void OnTreeTimerTimeout()
+	{
+		var allTrees = GetTree().GetNodesInGroup("trees");
+		for (int i = 0; i < allTrees.Count; i++) {
+			PlantTree tree = (PlantTree)allTrees[i];
+			tree.decay = true;
+			if (tree.RemainingBranches == PlantTree.maxDepth) {
+				GetNode<Timer>("TreeRegrowTimer").Start();
+			}
+		}
+	}
+
+	private void GrowNewTrees()
+	{
+		GetNode<Timer>("TreeRegrowTimer").Stop();
+		for (int i = 0; i < 3; i++) {
+			PlantTree tree = TreeScene.Instantiate<PlantTree>();
+			tree.Position = new Vector2(gen.RandiRange(300, 1620), 1020);
+			AddChild(tree);
+		}
+	}
+
 }

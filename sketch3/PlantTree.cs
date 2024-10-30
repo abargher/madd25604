@@ -4,8 +4,8 @@ using Godot;
 public partial class PlantTree : Area2D
 {
 	private const float MAX_GROW_VEL = 10f;
-	private const int maxDepth = 3;
-	private const float decayRate = 0.1f;
+	public const int maxDepth = 3;
+	private const float decayRate = 0.25f;
 
 	public float maxAngle = 10;
 	public bool hasLeaves = false;
@@ -39,16 +39,12 @@ public partial class PlantTree : Area2D
 		Scale = new Vector2(1, 0);
 
 		growSpeed = rng.RandfRange(0.7f, 0.9f);	
+		AddToGroup("trees");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		var moveVelocity = new Vector2(x: 1, y: 0);
-
-		if (Input.IsActionPressed("wind_on")) {
-			moveVelocity = new Vector2(x: 2, y: 0);
-		}
 
 		if (_growProgress < 1.0) {
 			_growProgress = Math.Min(_growProgress + growSpeed * (float)delta, 1.0f);
@@ -73,12 +69,23 @@ public partial class PlantTree : Area2D
 				AddChild(leaf);
 			}
 			hasLeaves = true;
-			decay = true;
+		}
+
+		if (decay) {
+			Scale -= new Vector2(decayRate * (float)delta, decayRate * (float)delta);
+			if (Scale[0] <= 0f) {
+				QueueFree();
+			}
 		}
 	}
 
 	private void OnVisibleScreenNotifier2DScreenExited()
 	{
 		QueueFree();
+	}
+
+	public void EnableDecay()
+	{
+		decay = true;
 	}
 }

@@ -39,3 +39,12 @@ position = Vector2(1616, 1024)
 
 [node name="Tree3" parent="." instance=ExtResource("3_b7hnn")]
 position = Vector2(328, 1024)
+
+[node name="TreeTimer" type="Timer" parent="."]
+wait_time = 11.0
+autostart = true
+
+[node name="TreeRegrowTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="TreeTimer" to="." method="OnTreeTimerTimeout"]
+[connection signal="timeout" from="TreeRegrowTimer" to="." method="GrowNewTrees"]
