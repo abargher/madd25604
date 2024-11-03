@@ -1,0 +1,22 @@
+{
+  "code" "\n__.children.window.begin()\n__.children.t_constants.begin()\n__.children.t_windowing_system.begin()\n__.children.t_update_system.begin()\n__.children.t_update.begin()\n__.children.t_fadeplane.begin()\n\n_.auto = 1"
+  "auto" 1
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_4246be0d_a7a4_4940_807e_3001b0c4a0a7"
+  "__datafilename__" "{{workspace}}/t_startup.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "t_startup"
+  "__filename__code" "{{workspace}}/t_startup.box.js"
+  "frame" #field/rect{
+    :x 58.0
+    :y 18.0
+    :w 100.0
+    :h 100.0
+  }
+}

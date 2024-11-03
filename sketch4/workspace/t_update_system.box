@@ -1,0 +1,27 @@
+{
+  "code" "\n_.scene[-20].update_operators = () => {\n\n\tvar s = __.children.stream().filter( b => b.textureOperator && b.here.textureOperator)\n\n\ts.forEach( a => {\n\t\ttry{\n\t\t\tif (a.fbo && a.fbo.draw)\n\t\t\t\ta.fbo.draw()\n\t\t}\n\t\tcatch(e)\n\t\t{\n\t\t\tSystem.out.println(e)\n\t\t}\n\t})\n\treturn true\n}\n\n\n\n"
+  "vertex" "#version 410\nlayout(location=0) in vec3 position;\nlayout(location=1) in vec4 s_Color;\n\nout vec2 tc;\n\nvoid main()\n{\n\tgl_Position = ( vec4(position.xy*2-vec2(1,1), 0.5, 1.0));\n\n\t\n\ttc = position.xy;\n\t\n}"
+  "withOverloading" true
+  "__filename__vertex" "{{workspace}}/t_update_system.box.glslv"
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "fragment" "#version 410\n\nlayout(location=0) out vec4 _output;\n\nuniform sampler2D mainView;\n\nin vec2 tc;\n\nvoid main()\n{\n\t_output  = texture(mainView, tc);\n\t_output.w = 1.0;\n}"
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_4996374f_05a6_4513_b8f7_36bf67c81f86"
+  "__datafilename__" "{{workspace}}/t_update_system.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "__filename__geometry" "{{workspace}}/t_update_system.box.glslg"
+  "geometry" ""
+  "name" "t_update_system"
+  "__filename__code" "{{workspace}}/t_update_system.box.js"
+  "frame" #field/rect{
+    :x 58.0
+    :y 418.0
+    :w 100.0
+    :h 100.0
+  }
+  "__filename__fragment" "{{workspace}}/t_update_system.box.glslf"
+}

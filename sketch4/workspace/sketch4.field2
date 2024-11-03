@@ -2,10 +2,34 @@
   :externalList [
     #field/external{
       :textFiles {
-        "code" "{{workspace}}/Untitled.box.js"
+        "code" "{{workspace}}/window.box.js"
       }
-      :dataFile "{{workspace}}/Untitled.box"
-      :id "_1e6325f5_1e0d_4cf0_be59_1374e9f156de"
+      :dataFile "{{workspace}}/window.box"
+      :id "_578b911d_7547_40ed_8b17_1606cfc599c6"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+        "_421682a8_bae6_4c09_8ce1_9e6079cc7e4b"
+        "_4996374f_05a6_4513_b8f7_36bf67c81f86"
+        "_8775f2a9_eeef_4fa8_99f3_7614df918e13"
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 58.0
+          :y 119.0
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "code" "{{workspace}}/t_constants.box.js"
+      }
+      :dataFile "{{workspace}}/t_constants.box"
+      :id "_a2db2fc1_4dda_441d_9293_a27497ec5291"
       :boxClass "fieldbox.boxes.Box"
       :parents [
         ">>root<<"
@@ -14,8 +38,149 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 48.54296875
-          :y 51.075775146484375
+          :x 58.0
+          :y 219.0
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "fragment" "{{workspace}}/t_windowing_system.box.glslf"
+        "geometry" "{{workspace}}/t_windowing_system.box.glslg"
+        "code" "{{workspace}}/t_windowing_system.box.js"
+        "vertex" "{{workspace}}/t_windowing_system.box.glslv"
+      }
+      :dataFile "{{workspace}}/t_windowing_system.box"
+      :id "_421682a8_bae6_4c09_8ce1_9e6079cc7e4b"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        "_578b911d_7547_40ed_8b17_1606cfc599c6"
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 56.0
+          :y 318.0
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "fragment" "{{workspace}}/some_operator.box.glslf"
+        "geometry" "{{workspace}}/some_operator.box.glslg"
+        "code" "{{workspace}}/some_operator.box.js"
+        "vertex" "{{workspace}}/some_operator.box.glslv"
+      }
+      :dataFile "{{workspace}}/some_operator.box"
+      :id "_c9b1d15e_1e3b_428e_bfe5_50ec26d42319"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 215.15234375
+          :y 660.53125
+          :w 99.0
+          :h 105.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "code" "{{workspace}}/t_update_system.box.js"
+        "vertex" "{{workspace}}/t_update_system.box.glslv"
+        "fragment" "{{workspace}}/t_update_system.box.glslf"
+        "geometry" "{{workspace}}/t_update_system.box.glslg"
+      }
+      :dataFile "{{workspace}}/t_update_system.box"
+      :id "_4996374f_05a6_4513_b8f7_36bf67c81f86"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        "_578b911d_7547_40ed_8b17_1606cfc599c6"
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 58.0
+          :y 418.0
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "code" "{{workspace}}/t_update.box.js"
+      }
+      :dataFile "{{workspace}}/t_update.box"
+      :id "_8775f2a9_eeef_4fa8_99f3_7614df918e13"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        "_578b911d_7547_40ed_8b17_1606cfc599c6"
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 58.0
+          :y 519.0
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "fragment" "{{workspace}}/t_fadeplane.box.glslf"
+        "geometry" "{{workspace}}/t_fadeplane.box.glslg"
+        "code" "{{workspace}}/t_fadeplane.box.js"
+        "vertex" "{{workspace}}/t_fadeplane.box.glslv"
+      }
+      :dataFile "{{workspace}}/t_fadeplane.box"
+      :id "_18f1399a_e949_4972_834b_0951c504defa"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 58.0
+          :y 619.0
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "code" "{{workspace}}/t_startup.box.js"
+      }
+      :dataFile "{{workspace}}/t_startup.box"
+      :id "_4246be0d_a7a4_4940_807e_3001b0c4a0a7"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 58.0
+          :y 18.0
           :w 100.0
           :h 100.0
         }
@@ -63,13 +228,19 @@
     "isPaired"
     "auto"
     "plane"
+    "head"
+    "tail"
     "defaultEditorProperty"
     "_defaultEditorProperty_cookie"
     "_code_cookie"
+    "_fragment_cookie"
     "_theVariant"
     "includes"
     "excludes"
     "__datafilename__"
     "__filename__code"
+    "__filename__fragment"
+    "__filename__geometry"
+    "__filename__vertex"
   }
 }

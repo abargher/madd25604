@@ -1,0 +1,21 @@
+{
+  "code" "\n__.t_constants = _\n_.width = 1920\n_.height = 1080\n\n_.currentUnit = 1\n\n_.nextUnit = () => {\n\treturn _.t_constants.currentUnit++\n}\n\n_.updateAllFBO = () => {\n\tfor(var a of __.children.stream().filter( b => b.textureOperator && b.here.textureOperator).toArray())\n\t{\n\t\tif (a.fbo && a.fbo.draw)\n\t\t{\n\t\t\ta.fbo.draw()\n\t\t}\n\t}\n}\n\n"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_a2db2fc1_4dda_441d_9293_a27497ec5291"
+  "__datafilename__" "{{workspace}}/t_constants.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "t_constants"
+  "__filename__code" "{{workspace}}/t_constants.box.js"
+  "frame" #field/rect{
+    :x 58.0
+    :y 219.0
+    :w 100.0
+    :h 100.0
+  }
+}

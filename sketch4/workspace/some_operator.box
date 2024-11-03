@@ -1,0 +1,28 @@
+{
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "fragment" "#version 410\n${_._uniform_decl_}\nlayout(location=0) out vec4 _output;\nin vec2 tc;\n\n\nvoid main()\n{\n\t_output  = vec4(1,1,1,1);\n}"
+  "geometry" ""
+  "name" "some_operator"
+  "frame" #field/rect{
+    :x 215.15234375
+    :y 660.53125
+    :w 99.0
+    :h 105.0
+  }
+  "__filename__code" "{{workspace}}/some_operator.box.js"
+  "code" "_.textureOperator = true\n\nvar MeshBuilder = Java.type('field.graphics.MeshBuilder')\nvar BaseMesh = Java.type('field.graphics.BaseMesh')\n\nvar FBO = Java.type('field.graphics.FBO')\nvar FBOSpecification = Java.type('field.graphics.FBO.FBOSpecification')\n\n\n_.fbo = new FBO(FBOSpecification.singleFloat16(_.t_constants.nextUnit(), _.t_constants.width, _.t_constants.height))\n\n_.shader = _.newShader()\n_.mesh = BaseMesh.triangleList(0,0)\n_.builder = _.mesh.builder()\n\n_.shader.mesh = _.mesh\n\n_.builder.open()\n_.builder.v(0,0,0)\n_.builder.v(1,0,0)\n_.builder.v(1,1,0)\n_.builder.v(0,1,0)\n_.builder.e(0,1,2) \n_.builder.e(0,2,3) \n_.builder.close()\n\n_.fbo.scene.shader = _.shader\n\n__.doSpaceMenu(_)\n\n_.auto = 10\n"
+  "vertex" "#version 410\nlayout(location=0) in vec3 position;\n\nout vec2 tc;\n\nvoid main()\n{\n\tgl_Position = ( vec4(position*2 - vec3(1,1,0), 1.0));\n\n\ttc = position.xy;\n}"
+  "auto" 10
+  "withOverloading" true
+  "__filename__vertex" "{{workspace}}/some_operator.box.glslv"
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_c9b1d15e_1e3b_428e_bfe5_50ec26d42319"
+  "__datafilename__" "{{workspace}}/some_operator.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "__filename__geometry" "{{workspace}}/some_operator.box.glslg"
+  "__filename__fragment" "{{workspace}}/some_operator.box.glslf"
+}

@@ -1,0 +1,27 @@
+{
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "fragment" "#version 410\n\nlayout(location=0) out vec4 _output;\n\nuniform vec4 clearColor;\n\nvoid main()\n{\n\t_output = vec4(clearColor);\n}"
+  "geometry" ""
+  "name" "t_fadeplane"
+  "frame" #field/rect{
+    :x 58.0
+    :y 619.0
+    :w 100.0
+    :h 100.0
+  }
+  "__filename__code" "{{workspace}}/t_fadeplane.box.js"
+  "code" "var GL11 = Java.type('org.lwjgl.opengl.GL11')\nvar BaseMesh = Java.type('field.graphics.BaseMesh')\n\n_.shader = _.newShader()\n_.mesh = BaseMesh.triangleList(0,0)\n_.builder = _.mesh.builder()\n\n_.shader.mesh = _.mesh\n\n_.builder.open()\n_.builder.v(0,0,0)\n_.builder.v(1,0,0)\n_.builder.v(1,1,0)\n_.builder.v(0,1,0)\n_.builder.e(0,1,2) \n_.builder.e(0,2,3) \n_.builder.close()\n\n_.shader.clearColor = vec(1,1,1,0.01)\n__.fadeplane = _.shader\n\n\n__.fadeNow = (red, green, blue, amount) => {\n\t_.fadeplane.clearColor = vec(red, green, blue, amount)\n\tGL11.glEnable(GL11.GL_BLEND)\n\tGL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)\n\t_.fadeplane.perform(-2)\n}\n"
+  "vertex" "#version 410\nlayout(location=0) in vec3 position;\nlayout(location=1) in vec4 s_Color;\n\nout vec4 vertexColor;\n\nvoid main()\n{\n\tgl_Position = ( vec4(position*2 -vec3(1,1,0), 1.0));\n\n\tvertexColor = s_Color;\n}"
+  "withOverloading" true
+  "__filename__vertex" "{{workspace}}/t_fadeplane.box.glslv"
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_18f1399a_e949_4972_834b_0951c504defa"
+  "__datafilename__" "{{workspace}}/t_fadeplane.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "__filename__geometry" "{{workspace}}/t_fadeplane.box.glslg"
+  "__filename__fragment" "{{workspace}}/t_fadeplane.box.glslf"
+}

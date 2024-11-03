@@ -1,0 +1,21 @@
+{
+  "code" "var Tops = Java.type(\"trace.graphics.Tops\")\n\nvar tops = new Tops()\n\n_.scene[-20].update_uniforms = () => {\n\n\ttops.synchronizeUniformsAndDeclarations(__)\n\treturn true\n}\n\n\n"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_8775f2a9_eeef_4fa8_99f3_7614df918e13"
+  "__datafilename__" "{{workspace}}/t_update.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "t_update"
+  "__filename__code" "{{workspace}}/t_update.box.js"
+  "frame" #field/rect{
+    :x 58.0
+    :y 519.0
+    :w 100.0
+    :h 100.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "fragment" "#version 410\n\nlayout(location=0) out vec4 _output;\n\nuniform sampler2D mainView;\nuniform sampler2D view_a;\nuniform sampler2D view_b;\nuniform sampler2D view_c;\nuniform sampler2D view_d;\n\nuniform vec4 viewControls;\n\nin vec2 tc;\n\nvoid main()\n{\n\t_output  = texture(mainView, tc);\n\t\n\tif (tc.y<0.25)\n\t{\n\t\tif (tc.x>=0 && tc.x<=0.25)\n\t\t{\n\t\t\tvec2 ttc = tc;\n\t\t\tttc.xy *= 4;\n\t\t\t_output = _output*(1.0-viewControls.x)+viewControls.x*texture(view_a, ttc);\n\t\t}\n\t\tif (tc.x>=0.25 && tc.x<=0.5)\n\t\t{\n\t\t\tvec2 ttc = tc;\n\t\t\tttc.xy *= 4;\n\t\t\tttc.x -= 1;\n\t\t\t_output = _output*(1.0-viewControls.y)+viewControls.y*texture(view_b, ttc);\n\t\t}\n\t\tif (tc.x>=0.5 && tc.x<=0.75)\n\t\t{\n\t\t\tvec2 ttc = tc;\n\t\t\tttc.xy *= 4;\n\t\t\tttc.x -= 2;\n\t\t\t_output = _output*(1.0-viewControls.z)+viewControls.z*texture(view_c, ttc);\n\t\t}\n\t\tif (tc.x>=0.75 && tc.x<=1)\n\t\t{\n\t\t\tvec2 ttc = tc;\n\t\t\tttc.xy *= 4;\n\t\t\tttc.x -= 3;\n\t\t\t_output = _output*(1.0-viewControls.w)+viewControls.w*texture(view_d, ttc);\n\t\t}\n\t}\n\t\n\t_output.w = 1.0;\n}"
+  "geometry" ""
+  "name" "t_windowing_system"
+  "frame" #field/rect{
+    :x 56.0
+    :y 318.0
+    :w 100.0
+    :h 100.0
+  }
+  "__filename__code" "{{workspace}}/t_windowing_system.box.js"
+  "code" "var MeshBuilder = Java.type('field.graphics.MeshBuilder')\nvar BaseMesh = Java.type('field.graphics.BaseMesh')\n\n_.shader = _.newShader()\n_.mesh = BaseMesh.triangleList(0,0)\n_.builder = _.mesh.builder()\n\n_.shader.mesh = _.mesh\n\n_.builder.open()\n_.builder.v(0,0,0)\n_.builder.v(1,0,0)\n_.builder.v(1,1,0)\n_.builder.v(0,1,0)\n_.builder.e(0,1,2) \n_.builder.e(0,2,3) \n_.builder.close()\n\n_.scene.windowShader = _.shader\n\nvar s = __.children.stream().filter( b => b.textureOperator && b.here.textureOperator)\ns.forEach( a => {\n\tif (a.fbo)\n\t{\n\t\t_.shader.mainView = a.fbo\t\n\t\t_.shader.view_a = a.fbo\t\n\t\t_.shader.view_b = a.fbo\t\n\t\t_.shader.view_c = a.fbo\t\n\t\t_.shader.view_d = a.fbo\t\n\t}\n})\n\n__.windowSystemShader = _.shader\n__.windowSystemShader.viewControls = vec(1,1,1,1)\n\n__.doSpaceMenu = (_) => {\n\t_.spaceMenu.clear()\n\t_.spaceMenu.Send_to_main_window_n = () => {\n\t\t__.windowSystemShader.mainView = _.fbo\n\t}\n\t_.spaceMenu.Send_to_main_window_exclusively_n2 = () => {\n\t\t__.windowSystemShader.mainView = _.fbo\n\t\t__.windowSystemShader.viewControls = vec(1,1,1,1)*0.0\n\t}\n\n\t_.spaceMenu.A_w = () => {\n\t\t__.windowSystemShader.view_a = _.fbo\n\t\t__.windowSystemShader.viewControls.x = 1\n\t}\n\n\t_.spaceMenu.B_sw = () => {\n\t\t__.windowSystemShader.view_b = _.fbo\n\t\t__.windowSystemShader.viewControls.y = 1\n\t}\n\n\t_.spaceMenu.C_se = () => {\n\t\t__.windowSystemShader.view_c = _.fbo\n\t\t__.windowSystemShader.viewControls.z = 1\n\t}\n\n\t_.spaceMenu.D_e = () => {\n\t\t__.windowSystemShader.view_d = _.fbo\n\t\t__.windowSystemShader.viewControls.w = 1\n\t}\n\n\t_.spaceMenu.Hide_subwindows_s2 = () => {\n\t\t__.windowSystemShader.viewControls = vec(1,1,1,1)*0.0\n\t}\n}"
+  "vertex" "#version 410\nlayout(location=0) in vec3 position;\nlayout(location=1) in vec4 s_Color;\n\nout vec2 tc;\n\nvoid main()\n{\n\tgl_Position = ( vec4(position.xy*2-vec2(1,1), 0.5, 1.0));\n\n\t\n\ttc = position.xy;\n\t\n}"
+  "withOverloading" true
+  "__filename__vertex" "{{workspace}}/t_windowing_system.box.glslv"
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_421682a8_bae6_4c09_8ce1_9e6079cc7e4b"
+  "__datafilename__" "{{workspace}}/t_windowing_system.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "__filename__geometry" "{{workspace}}/t_windowing_system.box.glslg"
+  "__filename__fragment" "{{workspace}}/t_windowing_system.box.glslf"
+}
