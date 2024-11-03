@@ -1,0 +1,21 @@
+{
+  "code" "// hello sketch 4"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_1e6325f5_1e0d_4cf0_be59_1374e9f156de"
+  "__datafilename__" "{{workspace}}/Untitled.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "Untitled"
+  "__filename__code" "{{workspace}}/Untitled.box.js"
+  "frame" #field/rect{
+    :x 48.54296875
+    :y 51.075775146484375
+    :w 100.0
+    :h 100.0
+  }
+}

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FIELD_DIR="field-new"
+FIELD_DIR="field_alpha54"
 
 if [[ "$#" -ne 1 ]]; then
     echo "Please specify a sketch number."

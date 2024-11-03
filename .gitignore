@@ -1,6 +1,8 @@
 .DS_Store
 field_alpha43_m1/
+field_alpha54/
 field-new
+*.log
 *.zip
 *.csv
 
