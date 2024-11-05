@@ -13,7 +13,7 @@
   "name" "t_constants"
   "__filename__code" "{{workspace}}/t_constants.box.js"
   "frame" #field/rect{
-    :x 58.0
+    :x 55.6875
     :y 219.0
     :w 100.0
     :h 100.0

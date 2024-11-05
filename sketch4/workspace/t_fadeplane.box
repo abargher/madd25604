@@ -6,8 +6,8 @@
   "geometry" ""
   "name" "t_fadeplane"
   "frame" #field/rect{
-    :x 58.0
-    :y 619.0
+    :x 55.6875
+    :y 623.84375
     :w 100.0
     :h 100.0
   }

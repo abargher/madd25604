@@ -6,7 +6,7 @@
   "geometry" ""
   "name" "t_windowing_system"
   "frame" #field/rect{
-    :x 56.0
+    :x 55.6875
     :y 318.0
     :w 100.0
     :h 100.0

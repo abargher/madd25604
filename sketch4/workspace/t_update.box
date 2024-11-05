@@ -13,7 +13,7 @@
   "name" "t_update"
   "__filename__code" "{{workspace}}/t_update.box.js"
   "frame" #field/rect{
-    :x 58.0
+    :x 55.6875
     :y 519.0
     :w 100.0
     :h 100.0

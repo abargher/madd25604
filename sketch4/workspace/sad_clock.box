@@ -1,0 +1,21 @@
+{
+  "code" "var clock_time = 0\n\nwhile (_.wait()) {\n\tclock_time = (clock_time + 1) % 100\n}"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__id__" "_927fb1fd_032e_4038_a4e1_7971c923bdba"
+  "__datafilename__" "{{workspace}}/sad_clock.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "sad_clock"
+  "frame" #field/rect{
+    :x 260.10076904296875
+    :y -43.9921875
+    :w 100.0
+    :h 100.0
+  }
+  "__filename__code" "{{workspace}}/sad_clock.box.js"
+  "__boxclass__" "fieldbox.boxes.Box"
+}

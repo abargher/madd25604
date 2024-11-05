@@ -17,7 +17,7 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 58.0
+          :x 55.6875
           :y 119.0
           :w 100.0
           :h 100.0
@@ -38,7 +38,7 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 58.0
+          :x 55.6875
           :y 219.0
           :w 100.0
           :h 100.0
@@ -63,7 +63,7 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 56.0
+          :x 55.6875
           :y 318.0
           :w 100.0
           :h 100.0
@@ -87,10 +87,10 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 215.15234375
-          :y 660.53125
-          :w 99.0
-          :h 105.0
+          :x 200.26953125
+          :y 606.83203125
+          :w 100.046875
+          :h 100.84765625
         }
       }
     }
@@ -112,7 +112,7 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 58.0
+          :x 55.6875
           :y 418.0
           :w 100.0
           :h 100.0
@@ -134,7 +134,7 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 58.0
+          :x 55.6875
           :y 519.0
           :w 100.0
           :h 100.0
@@ -158,8 +158,8 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 58.0
-          :y 619.0
+          :x 55.6875
+          :y 623.84375
           :w 100.0
           :h 100.0
         }
@@ -179,8 +179,74 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 58.0
-          :y 18.0
+          :x 55.6875
+          :y 13.18359375
+          :w 100.0
+          :h 101.171875
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "fragment" "{{workspace}}/webcam00000.box.glslf"
+        "geometry" "{{workspace}}/webcam00000.box.glslg"
+        "code" "{{workspace}}/webcam00000.box.js"
+        "vertex" "{{workspace}}/webcam00000.box.glslv"
+      }
+      :dataFile "{{workspace}}/webcam00000.box"
+      :id "_83609cda_2f7b_48c9_9996_375cb0db7d1a"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 199.828125
+          :y 265.4921875
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "code" "{{workspace}}/move_time.box.js"
+      }
+      :dataFile "{{workspace}}/move_time.box"
+      :id "_91020d92_7f82_42b5_8a45_a1f92dc739ef"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 500.0796813964844
+          :y 125.28984069824219
+          :w 100.0
+          :h 100.0
+        }
+      }
+    }
+    #field/external{
+      :textFiles {
+        "code" "{{workspace}}/sad_clock00000.box.js"
+      }
+      :dataFile "{{workspace}}/sad_clock00000.box"
+      :id "_dd43750b_d396_4aa7_b1a5_6332d10b61e9"
+      :boxClass "fieldbox.boxes.Box"
+      :parents [
+        ">>root<<"
+      ]
+      :children [
+      ]
+      :overriddenProperties {
+        "frame" #field/rect{
+          :x 222.65469360351562
+          :y 27.146875381469727
           :w 100.0
           :h 100.0
         }

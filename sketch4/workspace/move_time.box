@@ -1,0 +1,21 @@
+{
+  "code" "_.time.frame.x = 200\n// animates time to the right slowly\nvar time = 0\n_t()\nwhile(_.wait())\n{\n\ttime = (time + 1) % 100\n    _.time.frame.x += 0.1\n\tif (_.time.frame.x >= 300) {\n\t\t_.time.frame.x = 200;\n\t}\n\t_.redraw()\n}"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__boxclass__" "fieldbox.boxes.Box"
+  "__id__" "_91020d92_7f82_42b5_8a45_a1f92dc739ef"
+  "__datafilename__" "{{workspace}}/move_time.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "move_time"
+  "__filename__code" "{{workspace}}/move_time.box.js"
+  "frame" #field/rect{
+    :x 500.0796813964844
+    :y 125.28984069824219
+    :w 100.0
+    :h 100.0
+  }
+}

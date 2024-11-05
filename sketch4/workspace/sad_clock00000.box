@@ -1,0 +1,21 @@
+{
+  "code" "var max_time = 1000000\n\nwhile(_.wait()) {\n\t__.children.webcam.shader.clock_time = vec((__.children.webcam.shader.clock_time.x + 0.1) % max_time, 0)\n}"
+  "withOverloading" true
+  "boxOutline" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3IAAAAAAAAAAAAAAAAAAAAAA/0zMzMzMzMz/QAAAAAAAAeA=="
+  }
+  "__id__" "_dd43750b_d396_4aa7_b1a5_6332d10b61e9"
+  "__datafilename__" "{{workspace}}/sad_clock00000.box"
+  "boxBackground" #field/serializable{
+    :base64 "rO0ABXNyABFmaWVsZC5saW5hbGcuVmVjNAAAAAAAAAABDAAAeHB3ID/wAAAAAAAAP+5mZmZmZmY/7MzMzMzMzT/oAAAAAAAAeA=="
+  }
+  "name" "sad_clock"
+  "frame" #field/rect{
+    :x 222.65469360351562
+    :y 27.146875381469727
+    :w 100.0
+    :h 100.0
+  }
+  "__filename__code" "{{workspace}}/sad_clock00000.box.js"
+  "__boxclass__" "fieldbox.boxes.Box"
+}
