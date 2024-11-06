@@ -17,13 +17,27 @@ vec2 tile(vec2 st, float scale){
 	return fract(st * scale);
 }
 
-vec2 brickTile(vec2 _st, float _zoom, float _time){
+vec2 brickTile(vec2 _st, float _zoom, float time){
 	_st *= _zoom;
+	time = sin(time * 0.01)*5;
 	
-	float t_fact = step(0.,mod(_time/100, 2.0));
+	float vert = 0;
+	float horiz = 0;
+	float t_fact = mod(time/100, 2);
 	
-	_st.y += step(1., mod(_st.x,2.0)) * 0.5 * (cos(_time * 0.25));
-	_st.x += step(1., mod(_st.y,2.0)) * 0.5 * sin(_time * 0.25);
+	    if( fract(time)>0.5 ){
+        if (fract( _st.y * 0.5) > 0.5){
+            _st.x += fract(time)*2.0;
+        } else {
+            _st.x -= fract(time)*2.0;
+        }
+    } else {
+        if (fract( _st.x * 0.5) > 0.5){
+            _st.y += fract(time)*2.0;
+        } else {
+            _st.y -= fract(time)*2.0;
+        }
+    }
 	
 	
 	return fract(_st);
