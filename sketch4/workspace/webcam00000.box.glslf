@@ -57,8 +57,8 @@ void main()
 	);
 	
 	vec2 st = brickTile(t_flip,
-						//(cos(time / 20) * 10) + 30,
-						40,
+						(cos(time / 20) * 10) + 30,
+						//40,
 					   	time);
 	
 	vec3 color = vec3(circle(st, 0.6)) * c.rgb;
