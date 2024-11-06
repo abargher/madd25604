@@ -245,7 +245,7 @@
       ]
       :overriddenProperties {
         "frame" #field/rect{
-          :x 222.65469360351562
+          :x 222.41641235351562
           :y 27.146875381469727
           :w 100.0
           :h 100.0
@@ -299,7 +299,6 @@
     "defaultEditorProperty"
     "_defaultEditorProperty_cookie"
     "_code_cookie"
-    "_fragment_cookie"
     "_theVariant"
     "includes"
     "excludes"
