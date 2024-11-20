@@ -1,7 +1,7 @@
 from manim import *
 
 
-class DefaultTemplate(Scene):
+class PythagoreanTheorem(Scene):
     def construct(self):
 
         kw = dict(
@@ -84,6 +84,3 @@ class DefaultTemplate(Scene):
         )
         self.wait(2)
         self.play(LaggedStartMap(FadeOut, equations, shift=2 * RIGHT))
-        # self.play(Create(square))  # animate the creation of the square
-        # self.play(Transform(square, circle))  # interpolate the square into the circle
-        # self.play(FadeOut(square))  # fade out animation
