@@ -32,8 +32,8 @@ class CountingScene(Scene):
         self.play(
             Count(number, 0, 10),
             run_time=10,
-            # rate_func=rate_functions.ease_in_out_circ,
-            rate_func=linear,
+            rate_func=rate_functions.ease_in_out_circ,
+            # rate_func=linear,
         )
 
         self.wait()

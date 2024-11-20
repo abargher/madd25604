@@ -33,7 +33,7 @@ Manim's main object is the `Mobject` ('Math Object'). This is the base class for
 representing essentially any object that may appear on the screen within a
 `Scene`.
 
-`Mobject`s can
+<!-- `Mobject`s can -->
 
 ## Some creations with Manim
 

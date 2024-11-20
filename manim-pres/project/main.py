@@ -59,7 +59,7 @@ class PythagoreanTheorem(Scene):
                 # fade_transform_mismatches=True,
             )
         )
-        self.wait()
+        self.wait(3)
         self.play(
             TransformMatchingTex(
                 equations[1].copy(),
