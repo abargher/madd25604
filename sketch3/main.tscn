@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdskt08xsyis6"]
 
-[ext_resource type="Script" path="res://Main.cs" id="1_pt5wq"]
+[ext_resource type="Script" path="res://scripts/Main.cs" id="1_pt5wq"]
 [ext_resource type="PackedScene" uid="uid://dk6rl4qmhg86q" path="res://plant_tree.tscn" id="3_b7hnn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yqjl2"]

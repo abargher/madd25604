@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dk6rl4qmhg86q"]
 
-[ext_resource type="Script" path="res://PlantTree.cs" id="1_c5mvl"]
+[ext_resource type="Script" path="res://scripts/PlantTree.cs" id="1_c5mvl"]
 [ext_resource type="Shader" path="res://tree.gdshader" id="2_ntb3f"]
 [ext_resource type="PackedScene" uid="uid://r5yvgevmte4i" path="res://leaf.tscn" id="3_mquh3"]
 
