@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://r5yvgevmte4i"]
+
+[ext_resource type="Texture2D" uid="uid://cw0uf5dqvsohv" path="res://fern.png" id="1_rvh8n"]
+[ext_resource type="Script" path="res://scripts/Leaf.cs" id="1_tt0rn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l28p"]
+size = Vector2(1000, 1000)
+
+[node name="Leaf" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+collision_mask = 2
+script = ExtResource("1_tt0rn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rvh8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0l28p")
