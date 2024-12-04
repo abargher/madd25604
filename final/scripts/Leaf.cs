@@ -23,7 +23,7 @@ public partial class Leaf : CharacterBody2D
 	public override void _Ready()
 	{
 		// register signal handler
-		TreeManager treeManager = GetNode<TreeManager>("/root/Main/TreeManager");
+		TreeGardener treeManager = GetNode<TreeGardener>("/root/Main/TreeManager");
 		LeafImpact += treeManager.OnLeafImpact;
 
 		Scale = Vector2.Zero;
