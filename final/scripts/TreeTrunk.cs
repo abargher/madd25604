@@ -40,7 +40,7 @@ public partial class TreeTrunk : Node2D
 	public override void _Ready()
 	{
 		mainNode = GetNode<Node>("/root/Main");
-		rootBranch = GetNode<BranchBone>("TrunkBone");
+		rootBranch = GetNode<Bone2D>("TreeSkeleton/TrunkBone");
 		GD.Print("Root branch: ", rootBranch);
 		Scale = new Vector2(1, 0);
 	}
@@ -95,24 +95,21 @@ public partial class TreeTrunk : Node2D
 
 			return;
 		} else if (currentLayer == 0) {
-			// create first layer of branches
-			List<BranchBone> firstLayer = new();
-			int firstBranchCount = gen.RandiRange(minBranches, maxBranches);
+			// TODO: create first layer of branches
 
-			for (int branchNum = 0; branchNum < firstBranchCount; branchNum++) {
-				// -180 is left, 0 is right. 20 degrees on either side of vertical.
-				float branchAngle = gen.RandfRange(-110f, -70f);
+			// 20 degrees on either side of vertical.
+			float branchAngle = gen.RandfRange(-20f, -20f);
 
-				// set branch's length, random center angle, and other fields
-				BranchBone branch = branchBoneScene.Instantiate() as BranchBone;
-				GD.PrintErr("Branch: ", branch);
-				branch.trunk = this;
-				branch.baseAngle = branchAngle;
+			// set branch's length, random center angle, and other fields
+			BranchBone branch = branchBoneScene.Instantiate() as BranchBone;
+			branch.trunk = this;
+			branch.baseAngle = branchAngle;
+			branch.RotationDegrees = branchAngle;
+			branch.Position = new Vector2(0, -100);
 
-				rootBranch.AddChild(branch);
-				firstLayer.Add(branch);
-			}
-			branchLayers.Push(firstLayer);
+			rootBranch.AddChild(branch);
+			currentLayer += 1;
+			return;
 		}
 
 		currentLayer += 1;
@@ -122,13 +119,15 @@ public partial class TreeTrunk : Node2D
 			int newBranchCount = gen.RandiRange(minBranches, maxBranches);
 
 			for (int branchNum = 0; branchNum < newBranchCount; branchNum++) {
-				// -180 is left, 0 is right. 20 degrees on either side of vertical.
-				float branchAngle = gen.RandfRange(-110f, -70f);
+				// 20 degrees on either side of vertical.
+				float branchAngle = gen.RandfRange(-20f, -20f);
 
 				// set branch's length, random center angle, and other fields
 				BranchBone branch = branchBoneScene.Instantiate() as BranchBone;
 				branch.trunk = this;
 				branch.baseAngle = branchAngle;
+				branch.RotationDegrees = branchAngle;
+				branch.Position = new Vector2(0, -100);
 
 				oldBranch.AddChild(branch);
 				newLayer.Add(branch);

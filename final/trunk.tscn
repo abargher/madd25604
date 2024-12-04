@@ -8,12 +8,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_213bf"]
 shader = ExtResource("1_ec7ft")
 
-[sub_resource type="Gradient" id="Gradient_l8cbn"]
+[sub_resource type="Gradient" id="Gradient_j83dm"]
 offsets = PackedFloat32Array(0, 0.928571, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.775974, 0.775974, 0.775974, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1o8tq"]
-gradient = SubResource("Gradient_l8cbn")
+gradient = SubResource("Gradient_j83dm")
 width = 1
 fill_from = Vector2(0, 1)
 
