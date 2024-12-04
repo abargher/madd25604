@@ -5,6 +5,9 @@ public partial class TreeManager : Node
 {
 
 	[Export]
+	public PackedScene trunkScene {get; set;}
+
+	[Export]
 	public int numTrees = 3;
 
 	public Tuple<int, int> seedPodRange = new Tuple<int, int>(2, 5);

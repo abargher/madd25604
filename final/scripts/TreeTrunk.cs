@@ -80,6 +80,7 @@ public partial class TreeTrunk : Node2D
 		branch.baseAngle = angle;
 		branch.RotationDegrees = angle;
 		branch.Position = new Vector2(0, -100);
+		branch.Rest = branch.Transform;
 
 		return branch;
 	}
