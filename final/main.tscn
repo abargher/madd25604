@@ -1,15 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdskt08xsyis6"]
+[gd_scene load_steps=11 format=3 uid="uid://cdskt08xsyis6"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_pt5wq"]
 [ext_resource type="PackedScene" uid="uid://dk6rl4qmhg86q" path="res://plant_tree.tscn" id="3_b7hnn"]
 [ext_resource type="Script" path="res://scripts/TreeGardener.cs" id="3_gdy4j"]
 [ext_resource type="PackedScene" uid="uid://rb47xu4mrxha" path="res://trunk.tscn" id="4_mu3ra"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="5_7g14m"]
+[ext_resource type="Shader" path="res://grass.gdshader" id="6_47j5w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjgns"]
 shader = ExtResource("5_7g14m")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yqjl2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmhw1"]
+shader = ExtResource("6_47j5w")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3p8x"]
 size = Vector2(1920, 32)
@@ -34,6 +38,7 @@ collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_yqjl2")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+material = SubResource("ShaderMaterial_vmhw1")
 offset_top = 984.0
 offset_right = 1920.0
 offset_bottom = 1080.0

@@ -57,6 +57,8 @@ public partial class Leaf : CharacterBody2D
 			return;
 		}
 
+		// TODO: apply wind force (additional constant velocity?)
+
         var velocity = Velocity;
         velocity.Y += (float)delta * Gravity;
         Velocity = velocity;

@@ -1,4 +1,6 @@
 shader_type canvas_item;
+// Source: https://www.shadertoy.com/view/Wd2BD1
+
 //The following functions are from:
 //'Combustible Voronoi' https://www.shadertoy.com/view/4tlSzl
 vec3 firePalette(float i){
