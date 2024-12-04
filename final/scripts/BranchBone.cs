@@ -11,13 +11,15 @@ public partial class BranchBone : Bone2D
 	public TreeTrunk trunk;
 
 	public bool inGrowth = true;
-	public const float growthRate = 0.5f;  // percent/second
+	public float growthRate = 0.5f;  // percent/second
+	private RandomNumberGenerator rng = new();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		// register signal handler
 		GrowFinished += trunk.OnGrowFinished;
+		growthRate = rng.RandfRange(0.4f, 0.6f);
 
 
 		RotationDegrees = baseAngle;

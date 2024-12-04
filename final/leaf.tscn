@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://r5yvgevmte4i"]
 
 [ext_resource type="Shader" path="res://leaf.gdshader" id="1_oypaf"]
-[ext_resource type="Texture2D" uid="uid://cw0uf5dqvsohv" path="res://fern.png" id="1_rvh8n"]
 [ext_resource type="Script" path="res://scripts/Leaf.cs" id="1_tt0rn"]
+[ext_resource type="Texture2D" uid="uid://dufvxs853wlv7" path="res://fern-gray.png" id="3_3kci4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7l1lp"]
 shader = ExtResource("1_oypaf")
@@ -15,6 +15,7 @@ shader_parameter/detail = 1.0
 shader_parameter/distortion = null
 shader_parameter/heightOffset = null
 shader_parameter/offset = 0.0
+shader_parameter/fern_texture = ExtResource("3_3kci4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l28p"]
 size = Vector2(1000, 1000)
@@ -27,7 +28,8 @@ script = ExtResource("1_tt0rn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7l1lp")
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_rvh8n")
+texture = ExtResource("3_3kci4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+use_parent_material = true
 shape = SubResource("RectangleShape2D_0l28p")

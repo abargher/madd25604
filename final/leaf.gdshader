@@ -26,6 +26,10 @@ uniform float heightOffset : hint_range(0.0, 1.0);
 // With the offset value, you can if you want different moves for each asset. Just put a random value (1, 2, 3) in the editor. Don't forget to mark the material as unique if you use this
 uniform float offset = 0;
 
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+uniform sampler2D fern_texture;
+
+
 
 float getWind(vec2 vertex, vec2 uv, float time){
     float diff = pow(maxStrength - minStrength, 2.0);
@@ -36,13 +40,14 @@ float getWind(vec2 vertex, vec2 uv, float time){
 }
 
 void vertex() {
-    vec4 pos = MODEL_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
-    float time = TIME * speed + offset;
-    //float time = TIME * speed + pos.x * pos.y  ; not working when moving...
-    VERTEX.x += getWind(VERTEX.xy, UV, time);
+    // vec4 pos = MODEL_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
+    // float time = TIME * speed + offset;
+    // //float time = TIME * speed + pos.x * pos.y  ; not working when moving...
+    // VERTEX.x += getWind(VERTEX.xy, UV, time);
 }
 
 void fragment()
 {
 
+	COLOR = vec4(0.14*COLOR.r, 0.3*COLOR.r, 0.1*COLOR.r, COLOR.a);
 }
