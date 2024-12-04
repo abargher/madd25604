@@ -36,8 +36,8 @@ public partial class TreeGardener : Node2D
 
 
 		int currPodIndex = 0;
-		int seedPodsTracker = numSeedPods;
-		while (seedPodsTracker > 0) {
+		int seedPodsTracker = newNumSeedPods;
+		while (seedPodsTracker >= 0) {
 			seedPods[currPodIndex] += 1;
 			seedPodsTracker -= 1;
 			currPodIndex = (currPodIndex + 1) % seedPods.Count;
