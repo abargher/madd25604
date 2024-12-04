@@ -19,6 +19,7 @@ fill_from = Vector2(0, 1)
 
 [node name="TreeTrunk" type="Node2D"]
 material = SubResource("ShaderMaterial_213bf")
+scale = Vector2(2, 2)
 script = ExtResource("1_a5l1a")
 branchBoneScene = ExtResource("2_ru01i")
 leafScene = ExtResource("3_6dpbn")
@@ -26,7 +27,7 @@ leafScene = ExtResource("3_6dpbn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
 position = Vector2(-7.7486e-07, -50)
-scale = Vector2(14, 1.625)
+scale = Vector2(10, 1.625)
 texture = SubResource("GradientTexture2D_1o8tq")
 
 [node name="TreeSkeleton" type="Skeleton2D" parent="."]

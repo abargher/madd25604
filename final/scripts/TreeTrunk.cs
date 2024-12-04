@@ -25,8 +25,9 @@ public partial class TreeTrunk : Node2D
 	public int leafCount = -1;  // no one should ever see this inital value
 
 	public Bone2D rootBranch;
-	public const float decayRate = 0.15f;  // percent/second
+	public const float growDecayRate = 0.5f;  // percent/second
 	public bool inDecay = false;
+	public bool inGrowth = true;
 
 
 	// append a new list of branches on each layer
@@ -41,22 +42,32 @@ public partial class TreeTrunk : Node2D
 		mainNode = GetNode<Node>("/root/Main");
 		rootBranch = GetNode<BranchBone>("TrunkBone");
 		GD.Print("Root branch: ", rootBranch);
+		Scale = new Vector2(1, 0);
 	}
 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (inDecay) {
+		if (inGrowth) {
+			Scale = new Vector2(1, Math.Clamp(Scale.Y + (float)delta * growDecayRate, 0, 1));
+			if (Scale.Y >= 1) {
+				inGrowth = false;
+				Scale = new Vector2(1, 1);
+				// TODO: create first layer of branches
+				CreateLayer();
+			}
+		} else if (inDecay) {
 			// TODO: fade out
 
 			// shrink trunk vertically
-			Scale = new Vector2(Scale.X, Math.Clamp(Scale.Y - (float)delta * decayRate, 0, 1));
+			Scale = new Vector2(Scale.X, Math.Clamp(Scale.Y - (float)delta * growDecayRate, 0, 1));
 
 			if (Scale.Y <= 0.5f) {
 				QueueFree();
 			}
 		}
+
 	}
 
 
@@ -83,6 +94,25 @@ public partial class TreeTrunk : Node2D
 			}
 
 			return;
+		} else if (currentLayer == 0) {
+			// create first layer of branches
+			List<BranchBone> firstLayer = new();
+			int firstBranchCount = gen.RandiRange(minBranches, maxBranches);
+
+			for (int branchNum = 0; branchNum < firstBranchCount; branchNum++) {
+				// -180 is left, 0 is right. 20 degrees on either side of vertical.
+				float branchAngle = gen.RandfRange(-110f, -70f);
+
+				// set branch's length, random center angle, and other fields
+				BranchBone branch = branchBoneScene.Instantiate() as BranchBone;
+				GD.PrintErr("Branch: ", branch);
+				branch.trunk = this;
+				branch.baseAngle = branchAngle;
+
+				rootBranch.AddChild(branch);
+				firstLayer.Add(branch);
+			}
+			branchLayers.Push(firstLayer);
 		}
 
 		currentLayer += 1;
