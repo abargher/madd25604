@@ -14,7 +14,7 @@ public partial class Leaf : CharacterBody2D
 
 	public const float maxAngle = 50;
 	private float angle = 0;
-	private const float spinSpeed = 10f;
+	private float spinSpeed = 10f;
 	public Vector2 maxScale = new(0.15f, 0.15f);
 	private float growSpeed;
 	private bool gravityOn = false;
@@ -22,6 +22,7 @@ public partial class Leaf : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		spinSpeed = rng.RandfRange(100f, 300f);
 		ZIndex = 2;
 		// register signal handler
 		TreeGardener treeGardener = GetNode<TreeGardener>("/root/Main/TreeGardener");
@@ -62,11 +63,9 @@ public partial class Leaf : CharacterBody2D
 
         var motion = velocity * (float)delta;
 
-		/*
 		angle = (angle + spinSpeed * (float)delta) % 360;
 		RotationDegrees = angle;
-		Position += new Vector2((float)Math.Sin(angle) * 20, 0);
-		*/
+		// Position += new Vector2((float)Math.Sin(angle) * 2, 0);
 
         var collision = MoveAndCollide(motion);
 
