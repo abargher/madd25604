@@ -3,6 +3,7 @@ using System;
 
 public partial class Leaf : CharacterBody2D
 {
+	public bool isSeedPod = false;
 	private const float decayRate = 0.2f;
 	private const float Gravity = 100.0f;
 	private bool decay = false;

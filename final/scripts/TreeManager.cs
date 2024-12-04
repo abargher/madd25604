@@ -7,7 +7,7 @@ public partial class TreeManager : Node
 	[Export]
 	public int numTrees = 3;
 
-	public const Tuple<int, int> seedPodRange = new Tuple<int, int>(2, 5);
+	public Tuple<int, int> seedPodRange = new Tuple<int, int>(2, 5);
 
 	public int numSeedPods;
 	private RandomNumberGenerator gen = new RandomNumberGenerator();
