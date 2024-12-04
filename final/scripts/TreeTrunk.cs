@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 public partial class TreeTrunk : Node2D
 {
+	private Node mainNode;
 	[Export]
 	public PackedScene branchBoneScene {get; set;}
+	[Export]
+	public PackedScene leafScene {get; set;}
 
 	private RandomNumberGenerator gen = new();
 
@@ -32,10 +35,10 @@ public partial class TreeTrunk : Node2D
 	private List<Leaf> leaves = new();
 
 
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		mainNode = GetNode<Node>("/root/Main");
 		rootBranch = GetNode<BranchBone>("TrunkBone");
 		GD.Print("Root branch: ", rootBranch);
 	}
@@ -69,8 +72,13 @@ public partial class TreeTrunk : Node2D
 
 			foreach (BranchBone branch in branchLayers.Peek()) {
 				leafCount += 1;
-				Leaf leaf = new Leaf();
-				branch.AddChild(leaf);
+				Leaf leaf = leafScene.Instantiate() as Leaf;
+
+				// add leaf to main scene, not as child of branch
+				Vector2 worldSpaceCoord = ToGlobal(branch.Position);
+				leaf.Position = worldSpaceCoord;
+				mainNode.AddChild(leaf);
+
 				leaves.Add(leaf);
 			}
 
@@ -78,17 +86,20 @@ public partial class TreeTrunk : Node2D
 		}
 
 		currentLayer += 1;
-		List<BranchBone> newLayer = new List<BranchBone>();
+		List<BranchBone> newLayer = new();
 
 		foreach(BranchBone oldBranch in branchLayers.Peek()) {
 			int newBranchCount = gen.RandiRange(minBranches, maxBranches);
 
 			for (int branchNum = 0; branchNum < newBranchCount; branchNum++) {
-				// -180 is left, 0 is right. 20 degrees on either side of verical.
+				// -180 is left, 0 is right. 20 degrees on either side of vertical.
 				float branchAngle = gen.RandfRange(-110f, -70f);
 
-				BranchBone branch = new BranchBone(this, branchAngle);
 				// set branch's length, random center angle, and other fields
+				BranchBone branch = branchBoneScene.Instantiate() as BranchBone;
+				branch.trunk = this;
+				branch.baseAngle = branchAngle;
+
 				oldBranch.AddChild(branch);
 				newLayer.Add(branch);
 			}

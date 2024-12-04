@@ -7,3 +7,4 @@ auto_calculate_length_and_angle = false
 length = 100.0
 bone_angle = 0.0
 script = ExtResource("1_l8vqp")
+baseAngle = -90.0

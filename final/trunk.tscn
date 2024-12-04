@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://rb47xu4mrxha"]
+[gd_scene load_steps=3 format=3 uid="uid://rb47xu4mrxha"]
 
-[ext_resource type="Script" path="res://Scripts/Trunk.cs" id="1_acjn2"]
+[ext_resource type="Script" path="res://scripts/TreeTrunk.cs" id="1_a5l1a"]
+[ext_resource type="PackedScene" uid="uid://dhv8mfysjeqix" path="res://branch_bone.tscn" id="2_ru01i"]
 
-[node name="Trunk" type="Node2D"]
-script = ExtResource("1_acjn2")
+[node name="TreeTrunk" type="Node2D"]
+script = ExtResource("1_a5l1a")
+branchBoneScene = ExtResource("2_ru01i")
 
 [node name="TreeSkeleton" type="Skeleton2D" parent="."]
 

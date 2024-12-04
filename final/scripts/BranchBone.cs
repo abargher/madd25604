@@ -2,17 +2,20 @@ using Godot;
 
 public partial class BranchBone : Bone2D
 {
-	public float baseAngle;
+	[Export]
+	public float baseAngle = -90;
 	public TreeTrunk trunk;
-	// Called when the node enters the scene tree for the first time.
+
 	public BranchBone(TreeTrunk trunk, float baseAngle)
 	{
 		this.trunk = trunk;
 		this.baseAngle = baseAngle;
 	}
 
+	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		RotationDegrees = baseAngle;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
