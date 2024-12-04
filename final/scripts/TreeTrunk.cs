@@ -86,10 +86,13 @@ public partial class TreeTrunk : Node2D
 
 	public void CreateFirstLayer()
 	{
+		List<BranchBone> firstLayer = new();
 		for (int i = 0; i < gen.RandiRange(minBranches, maxBranches); i++) {
 			BranchBone branch = CreateNewBranch();
 			rootBranch.AddChild(branch);
+			firstLayer.Add(branch);
 		}
+		branchLayers.Push(firstLayer);
 		currentLayer += 1;
 	}
 
