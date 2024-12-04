@@ -29,6 +29,6 @@ public partial class TreeManager : Node
 
 	public void OnLeafImpact(bool isSeedPod)
 	{
-		GD.Print("Leaf from is a seed pod?: ", isSeedPod);
+		// GD.Print("Leaf from is a seed pod?: ", isSeedPod);
 	}
 }

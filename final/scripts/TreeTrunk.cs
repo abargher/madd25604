@@ -104,7 +104,7 @@ public partial class TreeTrunk : Node2D
 	public void CreateLayer()
 	{
 		if (currentLayer > maxLayers) {
-			GD.Print("Max layers passed");
+			GD.PrintErr("Max layers passed");
 			return;
 		} else if (currentLayer == maxLayers) {
 			currentLayer += 1;
@@ -116,8 +116,9 @@ public partial class TreeTrunk : Node2D
 				Leaf leaf = leafScene.Instantiate() as Leaf;
 
 				// add leaf to main scene, not as child of branch
-				Vector2 worldSpaceCoord = ToGlobal(branch.Position);
-				leaf.Position = worldSpaceCoord;
+				Vector2 offset = new((float)(branch.GetLength() * Math.Sin(branch.GlobalRotation)),
+									-(float)(branch.GetLength() * Math.Cos(branch.GlobalRotation)));
+				leaf.Position = branch.GlobalPosition + offset;
 				mainNode.AddChild(leaf);
 
 				leaves.Add(leaf);

@@ -13,17 +13,12 @@ public partial class BranchBone : Bone2D
 	public bool inGrowth = true;
 	public const float growthRate = 0.5f;  // percent/second
 
-	// public BranchBone(TreeTrunk trunk, float baseAngle)
-	// {
-	// 	this.trunk = trunk;
-	// 	this.baseAngle = baseAngle;
-	// }
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		// register signal handler
 		GrowFinished += trunk.OnGrowFinished;
+
 
 		RotationDegrees = baseAngle;
 		Scale = new Vector2(1, 0);
