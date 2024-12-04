@@ -52,6 +52,7 @@ autostart = true
 [node name="TreeRegrowTimer" type="Timer" parent="."]
 
 [node name="Trunk" parent="." instance=ExtResource("4_mu3ra")]
+position = Vector2(624, 1008)
 
 [connection signal="timeout" from="TreeTimer" to="." method="OnTreeTimerTimeout"]
 [connection signal="timeout" from="TreeRegrowTimer" to="." method="GrowNewTrees"]

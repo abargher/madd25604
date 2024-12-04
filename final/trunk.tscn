@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://rb47xu4mrxha"]
+[gd_scene load_steps=6 format=3 uid="uid://rb47xu4mrxha"]
 
+[ext_resource type="Shader" path="res://tree.gdshader" id="1_0gnjc"]
 [ext_resource type="Script" path="res://scripts/TreeTrunk.cs" id="1_a5l1a"]
 [ext_resource type="PackedScene" uid="uid://dhv8mfysjeqix" path="res://branch_bone.tscn" id="2_ru01i"]
+[ext_resource type="PackedScene" uid="uid://r5yvgevmte4i" path="res://leaf.tscn" id="3_6dpbn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qeoar"]
+shader = ExtResource("1_0gnjc")
 
 [node name="TreeTrunk" type="Node2D"]
+material = SubResource("ShaderMaterial_qeoar")
 script = ExtResource("1_a5l1a")
 branchBoneScene = ExtResource("2_ru01i")
+leafScene = ExtResource("3_6dpbn")
 
 [node name="TreeSkeleton" type="Skeleton2D" parent="."]
 

@@ -31,10 +31,13 @@ public partial class PlantTree : Area2D
 
 	private RandomNumberGenerator rng = new();
 	private Node rootNode;
+	private float length;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		CapsuleShape2D shape = GetNode<CollisionShape2D>("CollisionShape2D").Shape as CapsuleShape2D;
+		length = shape.Height;
 		rootNode = GetNode<Node>("/root/Main");
 		angle = rng.RandfRange(-maxAngle, maxAngle);
 		RotationDegrees = angle;
@@ -68,6 +71,8 @@ public partial class PlantTree : Area2D
 			for (int i = 0; i < 2; i++) {
 				Leaf leaf = LeafScene.Instantiate<Leaf>();
 				// leaf.Position = new Vector2(rng.RandiRange(-10, 10), rng.RandiRange(-10, 10) -180);
+				Vector2 offset = new((float)(length * Math.Sin(GlobalRotation)), -(float)(length * Math.Cos(GlobalRotation)));
+				leaf.Position = GlobalPosition + offset;
 
 				rootNode.AddChild(leaf);
 
