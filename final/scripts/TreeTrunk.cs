@@ -46,7 +46,7 @@ public partial class TreeTrunk : Node2D
 	{
 		mainNode = GetNode<Node>("/root/Main");
 		rootBranch = GetNode<Bone2D>("TreeSkeleton/TrunkBone");
-		GD.Print("Root branch: ", rootBranch);
+		// GD.Print("Root branch: ", rootBranch);
 		Scale = new Vector2(1, 0);
 		ZIndex = 1;
 	}
@@ -60,7 +60,6 @@ public partial class TreeTrunk : Node2D
 			if (Scale.Y >= 1) {
 				inGrowth = false;
 				Scale = new Vector2(1, 1);
-				// TODO: create first layer of branches
 				CreateFirstLayer();
 			}
 		} else if (inDecay) {

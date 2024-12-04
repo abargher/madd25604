@@ -78,7 +78,7 @@ public partial class Leaf : CharacterBody2D
 
 		angle = (angle + spinSpeed * (float)delta) % 360;
 		RotationDegrees = angle;
-		// Position += new Vector2((float)Math.Sin(angle) * 2, 0);
+		Position += new Vector2((float)Math.Sin(angle) * 2, 0);
 
         var collision = MoveAndCollide(motion);
 

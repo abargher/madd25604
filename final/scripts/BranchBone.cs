@@ -23,6 +23,16 @@ public partial class BranchBone : Bone2D
 
 
 		RotationDegrees = baseAngle;
+
+		// Scale the branch to a random length
+		/*
+		float lenScale = rng.RandfRange(0.7f, 3.5f);
+		SetLength(100 * lenScale);
+		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
+		sprite.Scale *= new Vector2(1, lenScale);
+		sprite.Position -= new Vector2(0, (sprite.Position.Y / 2) - (sprite.Position.Y / 2 * lenScale));
+		*/
+
 		Scale = new Vector2(1, 0);
 	}
 
