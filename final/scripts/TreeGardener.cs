@@ -17,6 +17,7 @@ public partial class TreeManager : Node
 	public int maxSeedPods = 5;
 
 	public int numSeedPods;
+
 	private RandomNumberGenerator gen = new();
 
 
