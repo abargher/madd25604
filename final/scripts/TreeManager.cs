@@ -3,6 +3,7 @@ using System;
 
 public partial class TreeManager : Node
 {
+
 	[Export]
 	public int numTrees = 3;
 
@@ -21,5 +22,10 @@ public partial class TreeManager : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	}
+
+	public void OnLeafImpact(bool isSeedPod)
+	{
+		GD.Print("Leaf from is a seed pod?: ", isSeedPod);
 	}
 }

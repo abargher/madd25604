@@ -3,6 +3,9 @@ using System;
 
 public partial class Leaf : CharacterBody2D
 {
+	[Signal]
+	public delegate void LeafImpactEventHandler(bool isSeedPod);
+	public TreeTrunk trunk;
 	public bool isSeedPod = false;
 	private const float decayRate = 0.2f;
 	private const float Gravity = 100.0f;
@@ -19,6 +22,10 @@ public partial class Leaf : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// register signal handler
+		TreeManager treeManager = GetNode<TreeManager>("/root/Main/TreeManager");
+		LeafImpact += treeManager.OnLeafImpact;
+
 		Scale = Vector2.Zero;
 		RotationDegrees = rng.RandfRange(-maxAngle, maxAngle);
 		growSpeed = rng.RandfRange(0.07f, 0.1f);	
@@ -64,6 +71,7 @@ public partial class Leaf : CharacterBody2D
 
 		if (collision != null) {
 			decay = true;
+			EmitSignal(SignalName.LeafImpact, isSeedPod);
 		}
     }
 }
