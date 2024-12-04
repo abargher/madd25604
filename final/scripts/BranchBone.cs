@@ -3,9 +3,9 @@ using Godot;
 public partial class BranchBone : Bone2D
 {
 	public float baseAngle;
-	public Trunk trunk;
+	public TreeTrunk trunk;
 	// Called when the node enters the scene tree for the first time.
-	public BranchBone(Trunk trunk, float baseAngle)
+	public BranchBone(TreeTrunk trunk, float baseAngle)
 	{
 		this.trunk = trunk;
 		this.baseAngle = baseAngle;

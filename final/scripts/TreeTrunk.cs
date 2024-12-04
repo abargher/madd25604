@@ -2,8 +2,11 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class Trunk : Node2D
+public partial class TreeTrunk : Node2D
 {
+	[Export]
+	public PackedScene branchBoneScene {get; set;}
+
 	private RandomNumberGenerator gen = new();
 
 	[Export]
