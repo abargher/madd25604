@@ -55,7 +55,7 @@ public partial class TreeTrunk : Node2D
 				inGrowth = false;
 				Scale = new Vector2(1, 1);
 				// TODO: create first layer of branches
-				CreateLayer();
+				CreateFirstLayer();
 			}
 		} else if (inDecay) {
 			// TODO: fade out
@@ -70,6 +70,28 @@ public partial class TreeTrunk : Node2D
 
 	}
 
+	// set branch's length, random center angle, and other fields
+	private BranchBone CreateNewBranch()
+	{
+		// 20 degrees on either side of vertical.
+		float angle = gen.RandfRange(-40f, 40f);
+		BranchBone branch = branchBoneScene.Instantiate() as BranchBone;
+		branch.trunk = this;
+		branch.baseAngle = angle;
+		branch.RotationDegrees = angle;
+		branch.Position = new Vector2(0, -100);
+
+		return branch;
+	}
+
+	public void CreateFirstLayer()
+	{
+		for (int i = 0; i < gen.RandiRange(minBranches, maxBranches); i++) {
+			BranchBone branch = CreateNewBranch();
+			rootBranch.AddChild(branch);
+		}
+		currentLayer += 1;
+	}
 
 	public void CreateLayer()
 	{
@@ -94,22 +116,6 @@ public partial class TreeTrunk : Node2D
 			}
 
 			return;
-		} else if (currentLayer == 0) {
-			// TODO: create first layer of branches
-
-			// 20 degrees on either side of vertical.
-			float branchAngle = gen.RandfRange(-20f, -20f);
-
-			// set branch's length, random center angle, and other fields
-			BranchBone branch = branchBoneScene.Instantiate() as BranchBone;
-			branch.trunk = this;
-			branch.baseAngle = branchAngle;
-			branch.RotationDegrees = branchAngle;
-			branch.Position = new Vector2(0, -100);
-
-			rootBranch.AddChild(branch);
-			currentLayer += 1;
-			return;
 		}
 
 		currentLayer += 1;
@@ -119,16 +125,7 @@ public partial class TreeTrunk : Node2D
 			int newBranchCount = gen.RandiRange(minBranches, maxBranches);
 
 			for (int branchNum = 0; branchNum < newBranchCount; branchNum++) {
-				// 20 degrees on either side of vertical.
-				float branchAngle = gen.RandfRange(-20f, -20f);
-
-				// set branch's length, random center angle, and other fields
-				BranchBone branch = branchBoneScene.Instantiate() as BranchBone;
-				branch.trunk = this;
-				branch.baseAngle = branchAngle;
-				branch.RotationDegrees = branchAngle;
-				branch.Position = new Vector2(0, -100);
-
+				BranchBone branch = CreateNewBranch();
 				oldBranch.AddChild(branch);
 				newLayer.Add(branch);
 			}
