@@ -1,12 +1,11 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 
 public partial class Trunk : Node2D
 {
-	
+	private RandomNumberGenerator gen = new();
+
 	[Export]
 	public int maxLayers = 4;
 
@@ -15,7 +14,13 @@ public partial class Trunk : Node2D
 	[Export]
 	public int maxBranches = 4;
 
-	private RandomNumberGenerator gen = new();
+	// How many of this Trunk's leaves will be seed pods
+	public int numPods;
+	public int leafCount = -1;  // no one should ever see this inital value
+
+	public Bone2D rootBranch;
+	public const float decayRate = 0.15f;  // percent/second
+	public bool inDecay = false;
 
 
 	// append a new list of branches on each layer
@@ -24,21 +29,48 @@ public partial class Trunk : Node2D
 	private List<Leaf> leaves = new();
 
 
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		rootBranch = GetNode<Bone2D>("TrunkBone");
+		GD.Print("Root branch: ", rootBranch);
 	}
 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (inDecay) {
+			// TODO: fade out
+
+			// shrink trunk vertically
+			Scale = new Vector2(Scale.X, Math.Clamp(Scale.Y - (float)delta * decayRate, 0, 1));
+
+			if (Scale.Y <= 0.5f) {
+				QueueFree();
+			}
+		}
 	}
+
 
 	public void CreateLayer()
 	{
-		if (currentLayer >= maxLayers) {
-			Debug.WriteLine("Max layers reached");
+		if (currentLayer > maxLayers) {
+			GD.Print("Max layers passed");
+			return;
+		} else if (currentLayer == maxLayers) {
+			currentLayer += 1;
+			leafCount = 0;
+			GD.Print("Leaf layer reached, creating leaves");
+
+			foreach (Bone2D branch in branchLayers.Peek()) {
+				leafCount += 1;
+				Leaf leaf = new Leaf();
+				branch.AddChild(leaf);
+				leaves.Add(leaf);
+			}
+
 			return;
 		}
 
@@ -52,11 +84,15 @@ public partial class Trunk : Node2D
 				Bone2D branch = new Bone2D();
 				// set branch's length, random center angle, and other fields
 				oldBranch.AddChild(branch);
-				newLayer.Append(branch);
+				newLayer.Add(branch);
 			}
 		}
 		branchLayers.Push(newLayer);
 
+	}
 
+	public void Decay()
+	{
+		inDecay = true;
 	}
 }

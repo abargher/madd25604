@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdskt08xsyis6"]
+[gd_scene load_steps=7 format=3 uid="uid://cdskt08xsyis6"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_pt5wq"]
 [ext_resource type="PackedScene" uid="uid://dk6rl4qmhg86q" path="res://plant_tree.tscn" id="3_b7hnn"]
 [ext_resource type="Script" path="res://scripts/TreeManager.cs" id="3_xr3xt"]
+[ext_resource type="PackedScene" uid="uid://rb47xu4mrxha" path="res://trunk.tscn" id="4_mu3ra"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yqjl2"]
 
@@ -49,6 +50,8 @@ wait_time = 11.0
 autostart = true
 
 [node name="TreeRegrowTimer" type="Timer" parent="."]
+
+[node name="Trunk" parent="." instance=ExtResource("4_mu3ra")]
 
 [connection signal="timeout" from="TreeTimer" to="." method="OnTreeTimerTimeout"]
 [connection signal="timeout" from="TreeRegrowTimer" to="." method="GrowNewTrees"]
