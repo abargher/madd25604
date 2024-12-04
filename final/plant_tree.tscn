@@ -10,12 +10,12 @@ shader = ExtResource("2_ntb3f")
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpjvl"]
 height = 208.0
 
-[sub_resource type="Gradient" id="Gradient_l8cbn"]
+[sub_resource type="Gradient" id="Gradient_tys6a"]
 offsets = PackedFloat32Array(0, 0.928571, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.775974, 0.775974, 0.775974, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nquht"]
-gradient = SubResource("Gradient_l8cbn")
+gradient = SubResource("Gradient_tys6a")
 width = 1
 fill_from = Vector2(0, 1)
 

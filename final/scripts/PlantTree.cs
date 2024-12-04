@@ -70,7 +70,8 @@ public partial class PlantTree : Area2D
 			// generate leaves
 			for (int i = 0; i < 2; i++) {
 				Leaf leaf = LeafScene.Instantiate<Leaf>();
-				// leaf.Position = new Vector2(rng.RandiRange(-10, 10), rng.RandiRange(-10, 10) -180);
+
+				// Position leaf correctly at the end of its branch
 				Vector2 offset = new((float)(length * Math.Sin(GlobalRotation)), -(float)(length * Math.Cos(GlobalRotation)));
 				leaf.Position = GlobalPosition + offset;
 

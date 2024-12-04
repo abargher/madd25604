@@ -1,18 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://rb47xu4mrxha"]
+[gd_scene load_steps=8 format=3 uid="uid://rb47xu4mrxha"]
 
-[ext_resource type="Shader" path="res://tree.gdshader" id="1_0gnjc"]
 [ext_resource type="Script" path="res://scripts/TreeTrunk.cs" id="1_a5l1a"]
+[ext_resource type="Shader" path="res://trunk.gdshader" id="1_ec7ft"]
 [ext_resource type="PackedScene" uid="uid://dhv8mfysjeqix" path="res://branch_bone.tscn" id="2_ru01i"]
 [ext_resource type="PackedScene" uid="uid://r5yvgevmte4i" path="res://leaf.tscn" id="3_6dpbn"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qeoar"]
-shader = ExtResource("1_0gnjc")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_213bf"]
+shader = ExtResource("1_ec7ft")
+
+[sub_resource type="Gradient" id="Gradient_l8cbn"]
+offsets = PackedFloat32Array(0, 0.928571, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.775974, 0.775974, 0.775974, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1o8tq"]
+gradient = SubResource("Gradient_l8cbn")
+width = 1
+fill_from = Vector2(0, 1)
 
 [node name="TreeTrunk" type="Node2D"]
-material = SubResource("ShaderMaterial_qeoar")
+material = SubResource("ShaderMaterial_213bf")
 script = ExtResource("1_a5l1a")
 branchBoneScene = ExtResource("2_ru01i")
 leafScene = ExtResource("3_6dpbn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-7.7486e-07, -50)
+scale = Vector2(14, 1.625)
+texture = SubResource("GradientTexture2D_1o8tq")
 
 [node name="TreeSkeleton" type="Skeleton2D" parent="."]
 
