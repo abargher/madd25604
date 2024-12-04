@@ -31,5 +31,3 @@ texture = ExtResource("1_rvh8n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0l28p")
-
-[connection signal="LeafImpact" from="." to="." method="OnLeafImpact"]

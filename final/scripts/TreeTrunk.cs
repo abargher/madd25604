@@ -126,11 +126,14 @@ public partial class TreeTrunk : Node2D
 				mainNode.AddChild(leaf);
 
 				leaves.Add(leaf);
+			}
+			GD.PrintErr("numPods: ", numPods);
+			List<Leaf> chosenLeaves = leaves.OrderBy(x => gen.RandiRange(0, leaves.Count - 1)).Take(numPods).ToList();
+			GD.Print("Chosen leaves: ", chosenLeaves.Count);
 
-				foreach (Leaf seedPod in leaves.OrderBy(x => gen.RandiRange(0, leaves.Count - 1)).Take(numPods)) {
-					seedPod.isSeedPod = true;
-				}
-
+			foreach (Leaf seedPod in chosenLeaves) {
+				seedPod.isSeedPod = true;
+				GD.Print("setting seed pod true");
 			}
 
 			return;
@@ -170,22 +173,15 @@ public partial class TreeTrunk : Node2D
 		}
 	}
 
-	public void OnLeafImpact(TreeTrunk trunk, bool isSeedPod)
+	public void OnLeafImpact(TreeTrunk trunk)
 	{
-		if (leafCount == -1) {
-			GD.PrintErr("Leaf count not set");
-			return;
-		}
-		if (numLeavesImpacted < leafCount) {
-			if (trunk == this){
-				numLeavesImpacted += 1;
-			}
-			if (numLeavesImpacted == leafCount) {
+		if (trunk == this) {
+			numLeavesImpacted += 1;
+			if (numLeavesImpacted >= leafCount - numPods - 2) {
 				GD.Print("All leaves impacted");
 				Decay();
 			}
 		}
-
-
 	}
+
 }

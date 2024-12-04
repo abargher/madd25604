@@ -4,7 +4,10 @@ using System;
 public partial class Leaf : CharacterBody2D
 {
 	[Signal]
-	public delegate void LeafImpactEventHandler(TreeTrunk trunk, bool isSeedPod);
+	public delegate void LeafImpactEventHandler(TreeTrunk trunk);
+
+	[Signal]
+	public delegate void SeedPodImpactEventHandler(Vector2 position);
 	public TreeTrunk trunk;
 	public bool isSeedPod = false;
 	private const float decayRate = 0.2f;
@@ -26,8 +29,8 @@ public partial class Leaf : CharacterBody2D
 		ZIndex = 2;
 		// register signal handler
 		TreeGardener treeGardener = GetNode<TreeGardener>("/root/Main/TreeGardener");
-		LeafImpact += treeGardener.OnLeafImpact;
-		// LeafImpact += trunk.OnLeafImpact;
+		LeafImpact += trunk.OnLeafImpact;
+		SeedPodImpact += treeGardener.OnSeedPodImpact;
 
 		Scale = Vector2.Zero;
 		RotationDegrees = rng.RandfRange(-maxAngle, maxAngle);
@@ -72,9 +75,13 @@ public partial class Leaf : CharacterBody2D
 
         var collision = MoveAndCollide(motion);
 
-		if (collision != null) {
+		if (collision != null && !decay) {
 			decay = true;
-			EmitSignal(SignalName.LeafImpact, trunk, isSeedPod);
+			if (isSeedPod) {
+				EmitSignal(SignalName.SeedPodImpact, GlobalPosition);
+			} else {
+				EmitSignal(SignalName.LeafImpact, trunk);
+			}
 		}
     }
 }
