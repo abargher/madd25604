@@ -15,6 +15,9 @@ public partial class Leaf : CharacterBody2D
 	private bool decay = false;
 	private float _growProgress = 0;
 
+	[Export]
+	public float windSpeed = 10f;
+
 	public const float maxAngle = 50;
 	private float angle = 0;
 	private float spinSpeed = 10f;
@@ -62,6 +65,10 @@ public partial class Leaf : CharacterBody2D
 		}
 
 		// TODO: apply wind force (additional constant velocity?)
+		if (Input.IsActionPressed("wind_on")){
+			Vector2 mousePos = GetViewport().GetMousePosition();
+			Velocity += (GlobalPosition - mousePos).Normalized() * windSpeed;
+		}
 
         var velocity = Velocity;
         velocity.Y += (float)delta * Gravity;
@@ -74,6 +81,9 @@ public partial class Leaf : CharacterBody2D
 		// Position += new Vector2((float)Math.Sin(angle) * 2, 0);
 
         var collision = MoveAndCollide(motion);
+
+		Position = new Vector2(Math.Clamp(Position.X, 0, GetViewport().GetVisibleRect().Size.X),
+							   Math.Clamp(Position.Y, 0, GetViewport().GetVisibleRect().Size.Y));
 
 		if (collision != null && !decay) {
 			decay = true;
