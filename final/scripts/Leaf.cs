@@ -22,6 +22,7 @@ public partial class Leaf : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		ZIndex = 2;
 		// register signal handler
 		TreeGardener treeGardener = GetNode<TreeGardener>("/root/Main/TreeGardener");
 		LeafImpact += treeGardener.OnLeafImpact;

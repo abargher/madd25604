@@ -37,7 +37,7 @@ public partial class TreeGardener : Node2D
 
 		for (int i = 0; i < numSeedPods; i++) {
 			float newX = gen.RandfRange(50, viewportSize.X - 50);
-			float newY = gen.RandfRange(viewportSize.Y * 0.95f, viewportSize.Y * 0.8f);
+			float newY = gen.RandfRange(viewportSize.Y * 0.95f, viewportSize.Y - 10);
 			treePositions.Add(new Vector2(newX, newY));
 		}
 

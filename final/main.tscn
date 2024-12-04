@@ -43,23 +43,11 @@ color = Color(0.0363829, 0.472907, 3.56168e-06, 1)
 position = Vector2(960, 1064)
 shape = SubResource("RectangleShape2D_c3p8x")
 
-[node name="Tree" parent="." instance=ExtResource("3_b7hnn")]
-position = Vector2(960, 1016)
-
-[node name="Tree2" parent="." instance=ExtResource("3_b7hnn")]
-position = Vector2(1616, 1024)
-
-[node name="Tree3" parent="." instance=ExtResource("3_b7hnn")]
-position = Vector2(328, 1024)
-
 [node name="TreeTimer" type="Timer" parent="."]
 wait_time = 11.0
 autostart = true
 
 [node name="TreeRegrowTimer" type="Timer" parent="."]
-
-[node name="Trunk" parent="." instance=ExtResource("4_mu3ra")]
-position = Vector2(624, 1008)
 
 [connection signal="GrowSeedPod" from="TreeGardener" to="TreeGardener" method="OnGrowSeedPod"]
 [connection signal="timeout" from="TreeTimer" to="." method="OnTreeTimerTimeout"]

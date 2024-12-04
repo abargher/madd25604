@@ -46,6 +46,7 @@ public partial class TreeTrunk : Node2D
 		rootBranch = GetNode<Bone2D>("TreeSkeleton/TrunkBone");
 		GD.Print("Root branch: ", rootBranch);
 		Scale = new Vector2(1, 0);
+		ZIndex = 1;
 	}
 
 

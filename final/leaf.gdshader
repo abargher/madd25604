@@ -36,13 +36,13 @@ float getWind(vec2 vertex, vec2 uv, float time){
 }
 
 void vertex() {
-    //vec4 pos = MODEL_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
-    //float time = TIME * speed + offset;
-    ////float time = TIME * speed + pos.x * pos.y  ; not working when moving...
-    //VERTEX.x += getWind(VERTEX.xy, UV, time);
+    vec4 pos = MODEL_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
+    float time = TIME * speed + offset;
+    //float time = TIME * speed + pos.x * pos.y  ; not working when moving...
+    VERTEX.x += getWind(VERTEX.xy, UV, time);
 }
 
-void fragment() {
-	// Called for every pixel the material is visible on.
-	COLOR = vec4(0.5, 0.3, 0.2, 1.0);
+void fragment()
+{
+
 }

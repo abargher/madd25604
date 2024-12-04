@@ -118,15 +118,10 @@ float nestedNoise(float time, vec2 uv, float count, float zoom, float decay, flo
 
 void fragment()
 {
-// void mainImage( out vec4 fragColor, in vec2 fragCoord )
-//   vec2 uv = fragCoord/iResolution.xy;
-//   float time = iTime * 0.1;
 	vec2 uv = FRAGCOORD.xy/(1.0 / SCREEN_PIXEL_SIZE);
 	float time = TIME * 0.1;
 	
 	float intensity = nestedNoise(time, uv, LAYER_COUNT, INITIAL_ZOOM, DECAY, DECAY_POW_FACTOR);
 
 	COLOR = vec4(vec3(intensity) * COLOR.xyz, 1.0);
-
-
 }
