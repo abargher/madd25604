@@ -4,7 +4,7 @@ using System;
 public partial class Leaf : CharacterBody2D
 {
 	[Signal]
-	public delegate void LeafImpactEventHandler(bool isSeedPod);
+	public delegate void LeafImpactEventHandler(TreeTrunk trunk, bool isSeedPod);
 	public TreeTrunk trunk;
 	public bool isSeedPod = false;
 	private const float decayRate = 0.2f;
@@ -71,7 +71,7 @@ public partial class Leaf : CharacterBody2D
 
 		if (collision != null) {
 			decay = true;
-			EmitSignal(SignalName.LeafImpact, isSeedPod);
+			EmitSignal(SignalName.LeafImpact, trunk, isSeedPod);
 		}
     }
 }

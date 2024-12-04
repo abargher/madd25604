@@ -114,6 +114,7 @@ public partial class TreeTrunk : Node2D
 			foreach (BranchBone branch in branchLayers.Peek()) {
 				leafCount += 1;
 				Leaf leaf = leafScene.Instantiate() as Leaf;
+				leaf.trunk = this;
 
 				// add leaf to main scene, not as child of branch
 				Vector2 offset = new((float)(branch.GetLength() * Math.Sin(branch.GlobalRotation)),
