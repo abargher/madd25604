@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhv8mfysjeqix"]
+
+[ext_resource type="Script" path="res://scripts/BranchBone.cs" id="1_l8vqp"]
+
+[node name="BranchBone" type="Bone2D"]
+script = ExtResource("1_l8vqp")

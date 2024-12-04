@@ -25,7 +25,7 @@ public partial class Trunk : Node2D
 
 	// append a new list of branches on each layer
 	public int currentLayer = 0;
-	private Stack<List<Bone2D>> branchLayers = new();
+	private Stack<List<BranchBone>> branchLayers = new();
 	private List<Leaf> leaves = new();
 
 
@@ -33,7 +33,7 @@ public partial class Trunk : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		rootBranch = GetNode<Bone2D>("TrunkBone");
+		rootBranch = GetNode<BranchBone>("TrunkBone");
 		GD.Print("Root branch: ", rootBranch);
 	}
 
@@ -64,7 +64,7 @@ public partial class Trunk : Node2D
 			leafCount = 0;
 			GD.Print("Leaf layer reached, creating leaves");
 
-			foreach (Bone2D branch in branchLayers.Peek()) {
+			foreach (BranchBone branch in branchLayers.Peek()) {
 				leafCount += 1;
 				Leaf leaf = new Leaf();
 				branch.AddChild(leaf);
@@ -75,13 +75,13 @@ public partial class Trunk : Node2D
 		}
 
 		currentLayer += 1;
-		List<Bone2D> newLayer = new List<Bone2D>();
+		List<BranchBone> newLayer = new List<BranchBone>();
 
-		foreach(Bone2D oldBranch in branchLayers.Peek()) {
+		foreach(BranchBone oldBranch in branchLayers.Peek()) {
 			int newBranchCount = gen.RandiRange(minBranches, maxBranches);
 
 			for (int branchNum = 0; branchNum < newBranchCount; branchNum++) {
-				Bone2D branch = new Bone2D();
+				BranchBone branch = new BranchBone(this);
 				// set branch's length, random center angle, and other fields
 				oldBranch.AddChild(branch);
 				newLayer.Add(branch);
