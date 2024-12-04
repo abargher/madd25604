@@ -5,15 +5,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbkq3"]
 shader = ExtResource("1_wndkp")
-shader_parameter/speed = 1.0
-shader_parameter/minStrength = 0.05
-shader_parameter/maxStrength = 0.01
-shader_parameter/strengthScale = 100.0
-shader_parameter/interval = 3.5
-shader_parameter/detail = 1.0
-shader_parameter/distortion = null
-shader_parameter/heightOffset = null
-shader_parameter/offset = 0.0
 
 [sub_resource type="Gradient" id="Gradient_l8cbn"]
 offsets = PackedFloat32Array(0, 0.928571, 1)

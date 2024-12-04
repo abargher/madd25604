@@ -1,11 +1,12 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class TreeGardener : Node2D
 {
 	[Signal]
-	public delegate void GrowSeedPodEventHandler(Vector2 position);
+	public delegate void GrowSeedPodEventHandler(Vector2 position, int numNewSeedPods);
 
 	[Export]
 	public PackedScene trunkScene {get; set;}
@@ -41,9 +42,21 @@ public partial class TreeGardener : Node2D
 			treePositions.Add(new Vector2(newX, newY));
 		}
 
-		foreach (Vector2 pos in treePositions) {
-			EmitSignal(SignalName.GrowSeedPod, pos);
+		// deal out all seed pod counts
+		List<int> seedPods = Enumerable.Repeat(0, numSeedPods).ToList();
+
+
+		int currPodIndex = 0;
+		while (numSeedPods > 0) {
+			seedPods[currPodIndex] += 1;
+			numSeedPods -= 1;
+			currPodIndex = (currPodIndex + 1) % seedPods.Count;
 		}
+
+		for (int i = 0; i < treePositions.Count; i++) {
+			EmitSignal(SignalName.GrowSeedPod, treePositions[i], seedPods[i]);
+		}
+		treePositions.Clear();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,12 +69,12 @@ public partial class TreeGardener : Node2D
 		// GD.Print("Leaf from is a seed pod?: ", isSeedPod);
 	}
 
-	public void OnGrowSeedPod(Vector2 position)
+	public void OnGrowSeedPod(Vector2 position, int numNewSeedPods)
 	{
 		TreeTrunk newTrunk = trunkScene.Instantiate<TreeTrunk>();
 		AddChild(newTrunk);
 		newTrunk.GlobalPosition = position;
+		newTrunk.numPods = numNewSeedPods;
 		GD.Print("Seed pod grown at: ", position);
-		GD.Print("New trunk position: ", newTrunk.GlobalPosition);
 	}
 }
