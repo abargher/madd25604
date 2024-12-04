@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdskt08xsyis6"]
+[gd_scene load_steps=9 format=3 uid="uid://cdskt08xsyis6"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_pt5wq"]
 [ext_resource type="PackedScene" uid="uid://dk6rl4qmhg86q" path="res://plant_tree.tscn" id="3_b7hnn"]
 [ext_resource type="Script" path="res://scripts/TreeGardener.cs" id="3_gdy4j"]
 [ext_resource type="PackedScene" uid="uid://rb47xu4mrxha" path="res://trunk.tscn" id="4_mu3ra"]
+[ext_resource type="Shader" path="res://sky.gdshader" id="5_7g14m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjgns"]
+shader = ExtResource("5_7g14m")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yqjl2"]
 
@@ -14,11 +18,13 @@ size = Vector2(1920, 32)
 script = ExtResource("1_pt5wq")
 TreeScene = ExtResource("3_b7hnn")
 
-[node name="TreeGardener" type="Node" parent="."]
+[node name="TreeGardener" type="Node2D" parent="."]
 script = ExtResource("3_gdy4j")
 trunkScene = ExtResource("4_mu3ra")
 
 [node name="Sky" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wjgns")
+use_parent_material = true
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.368627, 0.764706, 0.976471, 1)
@@ -55,5 +61,6 @@ autostart = true
 [node name="Trunk" parent="." instance=ExtResource("4_mu3ra")]
 position = Vector2(624, 1008)
 
+[connection signal="GrowSeedPod" from="TreeGardener" to="TreeGardener" method="OnGrowSeedPod"]
 [connection signal="timeout" from="TreeTimer" to="." method="OnTreeTimerTimeout"]
 [connection signal="timeout" from="TreeRegrowTimer" to="." method="GrowNewTrees"]

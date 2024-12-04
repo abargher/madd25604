@@ -153,10 +153,11 @@ public partial class TreeTrunk : Node2D
 	public void OnGrowFinished()
 	{
 		numBranchesGrown += 1;
-		GD.Print("Grow finished");
+		// GD.Print("Grow finished");
 
 		if (numBranchesGrown == numBranchesCurrentLayer) {
 			numBranchesGrown = 0;
+			GD.Print("Creating new layer");
 			CreateLayer();
 		}
 	}

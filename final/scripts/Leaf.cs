@@ -23,8 +23,8 @@ public partial class Leaf : CharacterBody2D
 	public override void _Ready()
 	{
 		// register signal handler
-		TreeGardener treeManager = GetNode<TreeGardener>("/root/Main/TreeManager");
-		LeafImpact += treeManager.OnLeafImpact;
+		TreeGardener treeGardener = GetNode<TreeGardener>("/root/Main/TreeGardener");
+		LeafImpact += treeGardener.OnLeafImpact;
 
 		Scale = Vector2.Zero;
 		RotationDegrees = rng.RandfRange(-maxAngle, maxAngle);
