@@ -3,6 +3,9 @@ using System;
 
 public partial class BranchBone : Bone2D
 {
+	[Signal]
+	public delegate void GrowFinishedEventHandler();
+
 	[Export]
 	public float baseAngle = -90;
 	public TreeTrunk trunk;
@@ -19,6 +22,9 @@ public partial class BranchBone : Bone2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// register signal handler
+		GrowFinished += trunk.OnGrowFinished;
+
 		RotationDegrees = baseAngle;
 		Scale = new Vector2(1, 0);
 	}
@@ -32,6 +38,7 @@ public partial class BranchBone : Bone2D
 			if (Scale.Y >= 1) {
 				inGrowth = false;
 				Scale = new Vector2(1, 1);
+				EmitSignal(SignalName.GrowFinished);
 			}
 		}
 	}

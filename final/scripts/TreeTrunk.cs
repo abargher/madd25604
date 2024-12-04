@@ -24,6 +24,9 @@ public partial class TreeTrunk : Node2D
 	public int numPods;
 	public int leafCount = -1;  // no one should ever see this inital value
 
+	public int numBranchesCurrentLayer;
+	public int numBranchesGrown = 0;
+
 	public Bone2D rootBranch;
 	public const float growDecayRate = 0.5f;  // percent/second
 	public bool inDecay = false;
@@ -94,6 +97,7 @@ public partial class TreeTrunk : Node2D
 			firstLayer.Add(branch);
 		}
 		branchLayers.Push(firstLayer);
+		numBranchesCurrentLayer = firstLayer.Count;
 		currentLayer += 1;
 	}
 
@@ -135,11 +139,23 @@ public partial class TreeTrunk : Node2D
 			}
 		}
 		branchLayers.Push(newLayer);
+		numBranchesCurrentLayer = newLayer.Count;
 
 	}
 
 	public void Decay()
 	{
 		inDecay = true;
+	}
+
+	public void OnGrowFinished()
+	{
+		numBranchesGrown += 1;
+		GD.Print("Grow finished");
+
+		if (numBranchesGrown == numBranchesCurrentLayer) {
+			numBranchesGrown = 0;
+			CreateLayer();
+		}
 	}
 }
