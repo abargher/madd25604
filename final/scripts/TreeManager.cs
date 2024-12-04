@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Globalization;
 
 public partial class TreeManager : Node
 {
@@ -10,7 +9,7 @@ public partial class TreeManager : Node
 	public Tuple<int, int> seedPodRange = new Tuple<int, int>(2, 5);
 
 	public int numSeedPods;
-	private RandomNumberGenerator gen = new RandomNumberGenerator();
+	private RandomNumberGenerator gen = new();
 	
 
 	// Called when the node enters the scene tree for the first time.
