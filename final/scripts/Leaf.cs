@@ -27,6 +27,7 @@ public partial class Leaf : CharacterBody2D
 		// register signal handler
 		TreeGardener treeGardener = GetNode<TreeGardener>("/root/Main/TreeGardener");
 		LeafImpact += treeGardener.OnLeafImpact;
+		// LeafImpact += trunk.OnLeafImpact;
 
 		Scale = Vector2.Zero;
 		RotationDegrees = rng.RandfRange(-maxAngle, maxAngle);

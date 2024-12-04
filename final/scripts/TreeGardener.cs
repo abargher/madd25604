@@ -17,9 +17,10 @@ public partial class TreeGardener : Node2D
 	[Export]
 	public int minSeedPods = 2;
 	[Export]
-	public int maxSeedPods = 5;
+	public int maxSeedPods = 4;
 
 	public int numSeedPods;
+	private int numSeedPodImpacts = 0;
 
 	private RandomNumberGenerator gen = new();
 
@@ -27,36 +28,47 @@ public partial class TreeGardener : Node2D
 	private Node mainNode;
 	
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	private void SetTreePositions(bool first)
 	{
-		mainNode = GetNode<Node>("/root/Main");
 		Vector2 viewportSize = GetViewport().GetVisibleRect().Size;
-		GD.PrintErr("Viewport size: ", viewportSize);
-
-		numSeedPods = gen.RandiRange(minSeedPods, maxSeedPods);
-
 		for (int i = 0; i < numSeedPods; i++) {
 			float newX = gen.RandfRange(50, viewportSize.X - 50);
 			float newY = gen.RandfRange(viewportSize.Y * 0.95f, viewportSize.Y - 10);
 			treePositions.Add(new Vector2(newX, newY));
 		}
 
-		// deal out all seed pod counts
+		numSeedPods = gen.RandiRange(minSeedPods, maxSeedPods);
+
+		// deal out all new seed pod counts
 		List<int> seedPods = Enumerable.Repeat(0, numSeedPods).ToList();
 
 
 		int currPodIndex = 0;
-		while (numSeedPods > 0) {
+		int seedPodsTracker = numSeedPods;
+		while (seedPodsTracker > 0) {
 			seedPods[currPodIndex] += 1;
-			numSeedPods -= 1;
+			seedPodsTracker -= 1;
 			currPodIndex = (currPodIndex + 1) % seedPods.Count;
 		}
 
-		for (int i = 0; i < treePositions.Count; i++) {
-			EmitSignal(SignalName.GrowSeedPod, treePositions[i], seedPods[i]);
+		if (first) {
+			for (int i = 0; i < treePositions.Count; i++) {
+				EmitSignal(SignalName.GrowSeedPod, treePositions[i],
+				seedPods[i]);
+			}
 		}
 		treePositions.Clear();
+
+	}
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+		mainNode = GetNode<Node>("/root/Main");
+
+		numSeedPods = gen.RandiRange(minSeedPods, maxSeedPods);
+
+		SetTreePositions(true);
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,7 +78,16 @@ public partial class TreeGardener : Node2D
 
 	public void OnLeafImpact(TreeTrunk trunk, bool isSeedPod)
 	{
-		// GD.Print("Leaf from is a seed pod?: ", isSeedPod);
+		if (isSeedPod) {
+			numSeedPodImpacts += 1;
+			EmitSignal(SignalName.GrowSeedPod, trunk.GlobalPosition, gen.RandiRange(minSeedPods, maxSeedPods));
+			if (numSeedPodImpacts == numSeedPods) {
+				GD.PrintErr("All seed pods have been impacted!");
+				numSeedPods = gen.RandiRange(minSeedPods, maxSeedPods);
+				numSeedPodImpacts = 0;
+				SetTreePositions(false);
+			}
+		}
 	}
 
 	public void OnGrowSeedPod(Vector2 position, int numNewSeedPods)

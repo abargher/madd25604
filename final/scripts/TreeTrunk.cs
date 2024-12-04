@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class TreeTrunk : Node2D
 {
@@ -23,6 +24,7 @@ public partial class TreeTrunk : Node2D
 	// How many of this Trunk's leaves will be seed pods
 	public int numPods;
 	public int leafCount = -1;  // no one should ever see this inital value
+	private int numLeavesImpacted = 0;
 
 	public int numBranchesCurrentLayer;
 	public int numBranchesGrown = 0;
@@ -67,7 +69,7 @@ public partial class TreeTrunk : Node2D
 			// shrink trunk vertically
 			Scale = new Vector2(Scale.X, Math.Clamp(Scale.Y - (float)delta * growDecayRate, 0, 1));
 
-			if (Scale.Y <= 0.5f) {
+			if (Scale.Y <= 0f) {
 				QueueFree();
 			}
 		}
@@ -124,6 +126,11 @@ public partial class TreeTrunk : Node2D
 				mainNode.AddChild(leaf);
 
 				leaves.Add(leaf);
+
+				foreach (Leaf seedPod in leaves.OrderBy(x => gen.RandiRange(0, leaves.Count - 1)).Take(numPods)) {
+					seedPod.isSeedPod = true;
+				}
+
 			}
 
 			return;
@@ -158,8 +165,27 @@ public partial class TreeTrunk : Node2D
 
 		if (numBranchesGrown == numBranchesCurrentLayer) {
 			numBranchesGrown = 0;
-			GD.Print("Creating new layer");
+			// GD.Print("Creating new layer");
 			CreateLayer();
 		}
+	}
+
+	public void OnLeafImpact(TreeTrunk trunk, bool isSeedPod)
+	{
+		if (leafCount == -1) {
+			GD.PrintErr("Leaf count not set");
+			return;
+		}
+		if (numLeavesImpacted < leafCount) {
+			if (trunk == this){
+				numLeavesImpacted += 1;
+			}
+			if (numLeavesImpacted == leafCount) {
+				GD.Print("All leaves impacted");
+				Decay();
+			}
+		}
+
+
 	}
 }
