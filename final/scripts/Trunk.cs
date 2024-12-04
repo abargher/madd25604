@@ -81,7 +81,10 @@ public partial class Trunk : Node2D
 			int newBranchCount = gen.RandiRange(minBranches, maxBranches);
 
 			for (int branchNum = 0; branchNum < newBranchCount; branchNum++) {
-				BranchBone branch = new BranchBone(this);
+				// -180 is left, 0 is right. 20 degrees on either side of verical.
+				float branchAngle = gen.RandfRange(-110f, -70f);
+
+				BranchBone branch = new BranchBone(this, branchAngle);
 				// set branch's length, random center angle, and other fields
 				oldBranch.AddChild(branch);
 				newLayer.Add(branch);

@@ -1,13 +1,14 @@
 using Godot;
-using System;
 
 public partial class BranchBone : Bone2D
 {
+	public float baseAngle;
 	public Trunk trunk;
 	// Called when the node enters the scene tree for the first time.
-	public BranchBone(Trunk trunk)
+	public BranchBone(Trunk trunk, float baseAngle)
 	{
 		this.trunk = trunk;
+		this.baseAngle = baseAngle;
 	}
 
 	public override void _Ready()
